@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agenda Budaya Lampung — Ruwa Jurai</title>
+  <meta name="description" content="Agenda budaya dan musim pertanian Lampung: Sekura, musim kopi, durian, dan upacara adat. Tanggal perkiraan, konfirmasi penyelenggara.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Agenda Budaya Lampung — Ruwa Jurai">
+  <meta property="og:description" content="Kapan budaya dirasakan. Dan ketika musim tiba.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/interior.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/agenda.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="agenda" data-header="solid">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="page-hero page-hero--agenda">
+      <div class="container page-hero__inner">
+        <nav class="crumb" aria-label="Jejak navigasi">
+          <a href="index.html">Beranda</a><span data-icon="chevron-right"></span><span>Agenda</span>
+        </nav>
+        <p class="eyebrow" style="margin-top:22px">Agenda · Waktu · Kejadian</p>
+        <h1>Waktu <em>yang berjalan.</em></h1>
+        <p class="page-hero__lead">
+          Kalender budaya tidak bisa diprediksi penuh seperti kalender akademik—dan seharusnya tidak.
+          Agenda di bawah mengetuk-ngetuk kehidupan: festival rakyat, musim panen, latihan tari, dan hari istimewa keluarga.
+        </p>
+        <div class="page-hero__meta">
+          <span><b>7</b> acara utama</span><span class="dot"></span>
+          <span><b>3</b> musim agraris</span><span class="dot"></span>
+          <span><b>2026</b> rangkaian edisi perdana</span>
+        </div>
+        <div class="page-jump" aria-label="Lompat ke bagian">
+          <a href="#kalender" data-goto="#kalender">Kalender</a>
+          <a href="#agenda" data-goto="#agenda">Daftar acara</a>
+          <a href="#kirim" data-goto="#kirim">Kirim agenda</a>
+          <a href="gawi.html">Main di Gawi</a>
+        </div>
+      </div>
+      <div class="page-hero__art" data-ornament="drum" aria-hidden="true"></div>
+      <div class="page-hero__aside">
+        <span class="aksara-wrap" data-aksara="waktu" data-aksara-decor aria-hidden="true" style="width:120px;color:var(--clay)"></span>
+        <span>waktu · 2026</span>
+      </div>
+    </section>
+
+    <section class="page-section page-section--top" id="kalender">
+      <div class="container">
+        <div class="year-ribbon reveal">
+          <div class="year-ribbon__head">
+            <h3>Edisi 2026</h3>
+            <span>Agenda budaya · draf perkiraan</span>
+          </div>
+          <div class="month-track" id="month-track" role="group" aria-label="Pilih bulan budaya"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="agenda">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__title">
+            <p class="eyebrow">Acara &amp; musim</p>
+            <h2>Daftar <em>yang berderap.</em></h2>
+            <p>Pilih bulan di atas atau lewat daftar acara di bawah. Setiap kartu memiliki aksi simpan ke kalender.</p>
+          </div>
+        </div>
+        <div class="agenda-grid" id="agenda-grid"></div>
+        <div class="agenda-note" style="margin-top:22px">
+          <span data-icon="info"></span>
+          <span><b>Pastikan konfirmasi.</b> Tanggal acara di atas bersifat perkiraan atau mengikuti kalender Islam/kolokium tertentu. Selalu hubungi penyelenggara dan pemangku adat setempat sebelum berkunjung.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--top" id="kirim">
+      <div class="container">
+        <div class="submit-panel reveal">
+          <div class="submit-panel__grid">
+            <div>
+              <p class="eyebrow">Warga atau panitia</p>
+              <h2>Buka <em>agenda.</em></h2>
+              <p>Kamu atau komunitas kamu mengadakan acara budaya/kuliner? Kirim detail singkatnya untuk dimasukkan dalam perencanaan awal Ruwa Jurai. Kami tidak menjamin publikasi—kami menyiapkan jalan agar tokoh setempat bisa meninjau.</p>
+            </div>
+            <form class="form-grid" id="agenda-form" novalidate>
+              <div class="field field--full"><label class="small" for="ag-name">Nama / kelompok <span aria-hidden="true">*</span></label><input class="input" id="ag-name" name="name" required placeholder="Mis. Keluarga Saibatin Dusun Baru"></div>
+              <div class="field"><label class="small" for="ag-village">Kecamatan / desa <span aria-hidden="true">*</span></label><input class="input" id="ag-village" name="village" required placeholder="Mis. Kecamatan Krubungan"></div>
+              <div class="field"><label class="small" for="ag-type">Jenis acara</label><select class="select" id="ag-type" name="type"><option>Festival rakyat</option><option>Musim pertanian</option><option>Upacara adat</option><option>Pertunjukan</option><option>Kuliner</option><option>Lainnya</option></select></div>
+              <div class="field"><label class="small" for="ag-month">Bulan</label><select class="select" id="ag-month" name="month"><option>Januari</option><option>Februari</option><option>Maret</option><option>April</option><option>Mei</option><option>Juni</option><option>Juli</option><option>Agustus</option><option>September</option><option>Oktober</option><option>November</option><option>Desember</option></select></div>
+              <div class="field field--full"><label class="small" for="ag-date">Tanggal (perkiraan)</label><input class="input" id="ag-date" name="date" type="date" required></div>
+              <div class="field field--full"><label class="small" for="ag-desc">Ringkasan acara</label><textarea class="textarea" id="ag-desc" name="desc" rows="3" required placeholder="Apa yang dirayakan, diadakan, atau dipelajari?"></textarea></div>
+              <div class="field field--full"><label class="small" for="ag-contact">Kontak &amp; catatan privasi</label><input class="input" id="ag-contact" name="contact" placeholder="WhatsApp / WhatsApp penyelenggara"></div>
+              <div class="field field--full"><label class="small" for="ag-note">Catatan etika</label><div class="form-check"><input type="checkbox" id="ag-consent" required /><label for="ag-consent">Saya memahami acara tidak perlu dipublikasi kecuali dengan persetujuan tokoh adat setempat.</label></div></div>
+              <div class="form-actions field--full">
+                <button class="btn btn--gold" type="submit">Ajukan acara</button>
+                <span class="form-note">Pengajuan awal hanya untuk perencanaan editorial. Validasi final dilakukan bersama pemangku adat.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <p class="eyebrow">Konteks</p>
+            <h2>Acara itu adalah <em>cerminan.</em></h2>
+            <p>Agenda membawamu ke tempat. Ensiklopedia membawamu menghafal ceritanya. Kuliner membawamu mencoba rasanya. Peta membawamu ke sana.</p>
+          </div>
+          <div class="cta-band__actions">
+            <div class="cta-band__aksara aksara-wrap" data-aksara="selamat" data-aksara-decor aria-hidden="true"></div>
+            <a class="btn btn--gold" href="gawi.html">Main di Gawi <span data-icon="gamepad"></span></a>
+            <a class="btn btn--on-dark" href="ensiklopedia.html">Buka ensiklopedia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kamus &amp; Aksara Lampung — Ruwa Jurai</title>
+  <meta name="description" content="Kamus bahasa Lampung, converter aksara, dan kamus istilah adat: bumi, talo balak, siger, dan kata-kata yang menggantung di antara rumpun A dan O.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Kamus &amp; Aksara Lampung — Ruwa Jurai">
+  <meta property="og:description" content="Kenali istilah Lampung sekaligus baca aksaranya. Satu kata, bercerita.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/interior.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/kamus.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="kamus" data-header="solid">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="page-hero page-hero--kamus">
+      <div class="container page-hero__inner">
+        <nav class="crumb" aria-label="Jejak navigasi">
+          <a href="index.html">Beranda</a><span data-icon="chevron-right"></span><span>Kamus &amp; Aksara</span>
+        </nav>
+        <p class="eyebrow" style="margin-top:22px">Bahasa · Kamus · Aksara</p>
+        <h1>Satu kata,<br><em>bercerita.</em></h1>
+        <p class="page-hero__lead">
+          Bahasa Lampung dibagi ke dalam rumpun adat A dan O—dan kebanyakan orang menganggapnya
+          keduanya sebagai satu. Kamus ini mengumpulkan istilah dari nelayan, petani, penenun,
+          dan peniaga, sekaligus mengajakmu membaca aksaranya.
+        </p>
+        <div class="page-hero__meta">
+          <span><b>42</b> istilah</span><span class="dot"></span>
+          <span><b>3</b> rumpun dialek</span><span class="dot"></span>
+          <span><b>21</b> huruf dasar</span><span class="dot"></span>
+          <span>Draf kurasi terjemahan</span>
+        </div>
+        <div class="page-jump" aria-label="Lompat ke bagian">
+          <a href="#kamus" data-goto="#kamus">Daftar istilah</a>
+          <a href="#konverter" data-goto="#konverter">Konverter aksara</a>
+          <a href="#aksara" data-goto="#aksara">Papan huruf</a>
+          <a href="gawi.html?game=aksara">Main Tebak Aksara</a>
+        </div>
+      </div>
+      <div class="page-hero__art" data-ornament="glyph" aria-hidden="true"></div>
+      <div class="page-hero__aside">
+        <span class="aksara-wrap" data-aksara="rumah" data-aksara-decor aria-hidden="true" style="width:120px;color:var(--maroon)"></span>
+        <span>rumah · 42 kata</span>
+      </div>
+    </section>
+
+    <section class="page-section page-section--top" id="konverter">
+      <div class="container">
+        <div class="aksara-feature reveal">
+          <div class="aksara-feature__copy">
+            <p class="eyebrow">Alat baca</p>
+            <h2>Konverter <em>Latin → Aksara.</em></h2>
+            <p>Tulis nama atau kata dalam aksara Latin, dan terjemahkan ke bentuk aksara visual. Konversi ini bersifat bantu: beberapa dianyam, dan pemahaman penuh membutuhkan penutur.</p>
+            <div class="converter">
+              <div class="converter__pane">
+                <div class="converter__label"><span><span data-icon="book"></span> Aksara Latin</span></div>
+                <textarea id="akk-input" class="textarea" rows="4" placeholder="Contoh: saibatin, seruit, talo balak, siger" aria-label="Tulis kata dalam aksara Latin"></textarea>
+                <div class="converter__actions">
+                  <button class="icon-btn" type="button" id="akk-copy" data-tip="Salin teks" aria-label="Salin teks terjemahan">${icon('copy')}</button>
+                  <button class="icon-btn" type="button" id="akk-clear" data-tip="Bersihkan" aria-label="Bersihkan teks">${icon('close')}</button>
+                </div>
+                <div class="converter__examples">
+                  <button type="button" data-akk="sai">sai</button>
+                  <button type="button" data-akk="lampung">lampung</button>
+                  <button type="button" data-akk="adat">adat</button>
+                  <button type="button" data-akk="talo balak">talo balak</button>
+                  <button type="button" data-akk="siger">siger</button>
+                </div>
+              </div>
+              <div class="converter__pane">
+                <div class="converter__label"><span><span data-icon="sparkles"></span> Aksara</span></div>
+                <div class="converter__out">
+                  <div class="aksara-wrap" id="akk-output"><span class="converter__placeholder">Aksara akan tertulis di sini.</span></div>
+                </div>
+                <div class="converter__note">
+                  <span data-icon="info"></span>
+                  <span>Aksara Lampung berupa abugida: bunyi anak huruf turun naik bersama induknya. Teks di atas disederhanakan untuk visualisasi.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="aksara-feature__showcase">
+            <div class="aksara-wrap" data-aksara="ruwa jurai" data-aksara-decor aria-hidden="true"></div>
+            <small>rumah · aksara · ruwa jurai</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="aksara">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__title">
+            <p class="eyebrow">Papan huruf</p>
+            <h2>Dua puluh satu <em>huruf</em> yang mulai.</h2>
+            <p>Ayat ini adalah potongan awal dari sistem aksara Lampung: satu abugida, dua rumpun dialek A dan O.</p>
+          </div>
+        </div>
+        <div class="glyph-board">
+          <div class="glyph-tabs" role="tablist" aria-label="Kelompok huruf">
+            <button class="chip chip--active" type="button" data-glyph-group="all">Semua</button>
+            <button class="chip" type="button" data-glyph-group="above">Anak huruf atas</button>
+            <button class="chip" type="button" data-glyph-group="below">Anak huruf bawah</button>
+            <button class="chip" type="button" data-glyph-group="after">Anak huruf setelah</button>
+          </div>
+          <div class="glyph-grid" id="glyph-grid"></div>
+          <p class="glyph-hint" style="margin-top:14px">Garis tebal adalah huruf induk; anak huruf ditulis di atas, bawah, atau setelahnya sesuai bunyi. <span data-icon="info"></span> <span class="faint">Aksara ini masih disederhanakan untuk proyek edukasi.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="kamus" style="background:var(--bg-deep);border-block:1px solid var(--line)">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="section-index">03 — Kamus</p>
+            <h2 class="section-lede" style="margin-top:12px">Isilah <em>kekacatan.</em></h2>
+          </div>
+          <div class="section-head__side">
+            <p>Isilah kekosongan kata dalam cerita kamu—misalnya “guling” atau “selamatan”—dan baca maknanya di sini. Kamus ini juga membuka jalur ke aksara.</p>
+          </div>
+        </div>
+        <div class="dictionary-shell">
+          <div class="dict-tools">
+            <div class="dict-search">
+              <span data-icon="search"></span>
+              <input id="dict-search" type="search" placeholder="Cari istilah…" aria-label="Cari istilah">
+            </div>
+            <div class="filter-chips" id="dict-cats" aria-label="Filter kategori istilah"></div>
+            <div class="filter-chips" id="dict-dialects" aria-label="Filter dialek">
+              <button class="chip chip--active" type="button" data-dialect="all">Semua</button>
+              <button class="chip" type="button" data-dialect="Umum">Umum</button>
+              <button class="chip" type="button" data-dialect="A">A</button>
+              <button class="chip" type="button" data-dialect="O">O</button>
+            </div>
+          </div>
+          <div class="dict-list" id="dict-list" aria-live="polite"></div>
+          <p class="tiny faint" style="padding:16px 20px;border-top:1px solid var(--line)">Menampilkan <b id="dict-count">0</b> dari <b id="dict-total">0</b> istilah. <span data-icon="shield"></span> Catatan budaya dapat berbeda antardaerah.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <p class="eyebrow">Lanjut belajar</p>
+            <h2>Aksara, kata, <em>dan rasa.</em></h2>
+            <p>Kembali ke peta untuk menemukan daerah, atau ke kuliner untuk hidangan yang mewakili istilah di atas.</p>
+          </div>
+          <div class="cta-band__actions">
+            <div class="cta-band__aksara aksara-wrap" data-aksara="sai" data-aksara-decor aria-hidden="true"></div>
+            <a class="btn btn--gold" href="gawi.html?game=aksara">Main Tebak Aksara <span data-icon="gamepad"></span></a>
+            <a class="btn btn--on-dark" href="peta.html">Buka peta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

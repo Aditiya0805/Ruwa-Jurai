@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f241c"/>
+      <stop offset="0.55" stop-color="#142b23"/>
+      <stop offset="1" stop-color="#1d3a2e"/>
+    </linearGradient>
+    <pattern id="tapis" width="46" height="46" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M23 2 44 23 23 44 2 23Z" fill="none" stroke="#d9a94f" stroke-width="1.2" opacity=".35"/>
+      <circle cx="23" cy="23" r="1.6" fill="#d9a94f" opacity=".5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#tapis)"/>
+  <circle cx="1030" cy="90" r="260" fill="none" stroke="#d9a94f" stroke-width="1" opacity=".25"/>
+  <circle cx="1030" cy="90" r="200" fill="none" stroke="#d9a94f" stroke-width="1" opacity=".18" stroke-dasharray="2 10"/>
+  <g stroke="#d9a94f" stroke-width="1" opacity=".3">
+    <path d="M120 500 300 350 480 500 660 350 840 500 1020 350"/>
+  </g>
+  <g transform="translate(90 250)">
+    <path d="M60 10 118 60 60 110 2 60Z" fill="#6a1c2b" stroke="#d9a94f" stroke-width="3"/>
+    <path d="M60 16 105 60 60 104 15 60Z" fill="none" stroke="#d9a94f" stroke-width="2" opacity=".55"/>
+    <path d="M35 83 41 49 60 35 79 49 85 83Z" fill="none" stroke="#f5efe2" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M48 83V55M60 83V43M72 83V55" stroke="#d9a94f" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="60" cy="28" r="3.4" fill="#d9a94f"/>
+    <path d="M35 91H85" stroke="#d9a94f" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+  </g>
+  <text x="80" y="90" font-family="Georgia, serif" font-size="46" fill="#f5efe2" letter-spacing="1">Ruwa Jurai</text>
+  <text x="82" y="132" font-family="Georgia, serif" font-size="30" font-style="italic" fill="#d9a94f">Sai Bumi Ruwa Jurai</text>
+  <text x="82" y="200" font-family="Georgia, serif" font-size="30" fill="#f5efe2" opacity=".85">Portal Budaya &amp; Kuliner Lampung</text>
+  <text x="82" y="250" font-family="Verdana, sans-serif" font-size="22" fill="#f5efe2" opacity=".62" letter-spacing="3">SA BUMI RUWA JURAI · CULTURE &amp; CULINARY PORTAL</text>
+  <text x="80" y="560" font-family="Verdana, sans-serif" font-size="22" fill="#d9a94f" letter-spacing="6">DRAF KURASI · 2026</text>
+</svg>

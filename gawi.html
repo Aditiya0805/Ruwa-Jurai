@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gawi — Main Budaya Lampung | Ruwa Jurai</title>
+  <meta name="description" content="Gawi: ruang permainan budaya Lampung—Kuis Piil Pesenggiri, Cocokkan Tapis, Pasang Siger, Tebak Aksara, Meracik Seruit. Dolan sambil belajar.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Gawi — Main Budaya Lampung | Ruwa Jurai">
+  <meta property="og:description" content="Dolan sambil belajar. Uji ingatan, ketelitian, dan rasa penasaranmu di Gawi.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/games.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/interior.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/gawi.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="gawi" data-header="solid">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="gawi-hero">
+      <div class="container gawi-hero__grid">
+        <div class="reveal" data-reveal="left">
+          <p class="eyebrow">Gawi · dolan sambil belajar</p>
+          <h1>Bermain <em>adat,</em><br>belajar <em>sekaligus.</em></h1>
+          <p class="gawi-hero__lead">Lima permainan kecil dari dunia Gawi: uji ingatan motif, rangkai busana, dan racik hidangan. Tidak ada peringkat nasional—hanya Sai yang bersorak pelan di sudut layar.</p>
+          <div class="gawi-hero__stats">
+            <div class="gawi-stat"><b>5</b><span>Permainan</span></div>
+            <div class="gawi-stat"><b id="gawi-xp">0</b><span>Skor XP</span></div>
+            <div class="gawi-stat"><b>8</b><span>Lencana</span></div>
+          </div>
+          <div class="home-hero__actions" style="margin-top:26px">
+            <a class="btn btn--gold" href="#gawi" data-goto="#gawi">Pilih permainan <span data-icon="gamepad"></span></a>
+            <a class="btn btn--on-dark" href="tentang.html#kurasi">Tentang Gawi</a>
+          </div>
+        </div>
+        <div class="gawi-hero__mascot" data-mascot="bare" aria-hidden="true">
+          <div class="gawi-hero__bubble">Siap berlatih? Aku pilihkan yang paling terasa.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gawi-section" id="gawi">
+      <div class="container">
+        <div class="gawi-hub-head">
+          <div class="reveal" data-reveal="left">
+            <p class="section-index">01 — Pintu permainan</p>
+            <h2 class="section-lede" style="margin-top:12px">Pilih game.<br><em>Sai</em> tetap menantikan.</h2>
+            <p style="margin-top:16px;color:var(--ink-faint);font-size:.82rem;max-width:52ch;line-height:1.7">Semua game mereduksi budaya menjadi satu keputusan kecil. Kalau gagal, tidak ada yang namanya gagal—hanya pertanyaan yang belum dijawab.</p>
+          </div>
+          <div class="xp-panel reveal" data-reveal="right">
+            <div class="xp-panel__top"><span>Level Gawi</span><b>0</b></div>
+            <div class="xp-track"><span class="xp-fill" style="--xp:0"></span></div>
+            <small><span data-icon="star"></span> Lencana: <b id="gawi-badge-count">0</b>/8</small>
+          </div>
+        </div>
+
+        <div class="gawi-grid" id="gawi-grid"></div>
+      </div>
+    </section>
+
+    <section class="section badge-section" id="lencana" style="padding-top:0">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div class="section-head__title reveal">
+            <p class="eyebrow">Lencana</p>
+            <h2 style="margin-top:12px">Delapan <em>lambang.</em></h2>
+            <p style="margin-top:14px;color:var(--ink-soft);font-size:.92rem;line-height:1.7">Lencana Gawi diberikan untuk capaian, bukan kecepatan. Kamu bisa menyelesaikan semua tanpa menang—dan tetap jadi penjelajah.</p>
+          </div>
+          <div class="section-head__side reveal" data-reveal="right">
+            <div class="xp-panel" style="min-width:0;flex:1">
+              <div class="xp-panel__top"><span>Level Gawi</span><b>0</b></div>
+              <div class="xp-track"><span class="xp-fill" style="--xp:0"></span></div>
+              <small><span data-icon="star"></span> Lencana: <b id="gawi-badge-count">0</b>/8</small>
+            </div>
+          </div>
+        </div>
+        <div class="badge-grid" id="badge-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gawi-etik-title">
+      <div class="container">
+        <div class="gawi-etiquette">
+          <div class="reveal" data-reveal="left">
+            <p class="eyebrow">Etika bermain</p>
+            <h2 id="gawi-etik-title">Sempati, <em>tidak menyaksikan.</em></h2>
+          </div>
+          <div class="reveal" data-reveal="right">
+            <div class="etiquette-list">
+              <div class="etiquette-item"><span data-icon="shield"></span><span><b>Duduk dulu di lingkaran.</b> Permainan adat kerap dimulai dengan posisi tertentu. Tanyakan atau ikuti arahan pemimpin setempat.</span></div>
+              <div class="etiquette-item"><span data-icon="book"></span><span><b>Jangan menyangkal.</b> Jawaban salah bukan celaan; itu cara menguji pemahaman. Jangan memanggil pemain lain “kurang tahu”.</span></div>
+              <div class="etiquette-item"><span data-icon="hands"></span><span><b>Tangan terbuka saat bertanya.</b> Di Gawi, kamu mengajukan pertanyaan dengan rendah hati dan menerima kritik dengan baik.</span></div>
+              <div class="etiquette-item"><span data-icon="spark"></span><span><b>Jangan mengabadikan.</b> Simbol-simbol adat perlu konteks sosial, bukan hanya visual.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gawi-stage" id="game-stage" aria-hidden="false">
+      <div class="container">
+        <div class="game-shell">
+          <div class="game-topbar">
+            <button class="game-back" type="button" data-game-back><span data-icon="left"></span> Kembali ke Gawi</button>
+            <span class="game-topbar__title" id="game-title">—</span>
+            <div class="game-topbar__meta">
+              <span>SKOR <b id="game-score">0</b></span>
+              <span>XP <b id="game-xp">0</b></span>
+            </div>
+          </div>
+          <div class="game-body" id="game-body"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

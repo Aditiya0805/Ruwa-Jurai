@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruwa Jurai — Portal Budaya &amp; Kuliner Lampung</title>
+  <meta name="description" content="Rumah digital untuk cerita, rasa, dan warisan Lampung. Jelajahi ensiklopedia adat, kuliner, peta 15 kabupaten/kota, kamus aksara, dan permainan budaya.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Ruwa Jurai — Sai Bumi Ruwa Jurai">
+  <meta property="og:description" content="Satu bumi, dua jurai. Jelajahi budaya dan kuliner Lampung lewat cerita, peta, aksara, dan permainan.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/home.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="beranda">
+  <div data-site-header></div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="home-hero" id="hero">
+      <div class="home-hero__scene" data-hero-scene></div>
+      <span class="hero-verbs" aria-hidden="true"><b>tabik pun</b> · selamat datang di tanah ruwa jurai</span>
+      <div class="container home-hero__inner">
+        <div class="home-hero__copy">
+          <p class="eyebrow eyebrow--gold">Portal budaya &amp; kuliner Lampung</p>
+          <h1>
+            <span class="line">Sai Bumi</span>
+            <em>Ruwa Jurai.</em>
+          </h1>
+          <p class="home-hero__lead">
+            Satu bumi, dua jurai, dan ribuan cerita yang tumbuh di antaranya.
+            <strong>Ruwa Jurai</strong> mengajakmu menyusuri adat, rasa, bahasa, dan wajah
+            lima belas kabupaten/kota Lampung—dengan hormat pada pemilik ceritanya.
+          </p>
+          <div class="home-hero__actions">
+            <a class="btn btn--gold" href="ensiklopedia.html">Mulai menjelajah <span data-icon="right"></span></a>
+            <a class="btn btn--on-dark" href="gawi.html"><span data-icon="gamepad"></span> Main di Gawi</a>
+          </div>
+          <div class="home-hero__stats">
+            <div class="home-hero__stat"><b data-count="15">15</b><span>Kabupaten &amp; kota</span></div>
+            <div class="home-hero__stat"><b data-count="22">22</b><span>Entri budaya</span></div>
+            <div class="home-hero__stat"><b data-count="9">9</b><span>Cerita rasa</span></div>
+            <div class="home-hero__stat"><b data-count="3">3</b><span>Tujuan SDG</span></div>
+          </div>
+        </div>
+        <div class="home-hero__mascot">
+          <div class="mascot-stage">
+            <span class="mascot-stage__halo" aria-hidden="true"></span>
+            <div class="speech-bubble">Tabik pun! Aku <b>Sai</b>. Mau mulai dari mana hari ini?<small>Pemandu ceritamu</small></div>
+            <div class="mascot-actions">
+              <button type="button" data-sai-action="wave"><span data-icon="hands"></span> Lambaikan tangan</button>
+              <button type="button" data-sai-action="story"><span data-icon="spark"></span> Minta cerita</button>
+            </div>
+            <div data-mascot></div>
+            <span class="mascot-stage__caption">Sai · gajah Sumatra · pemandu cerita</span>
+          </div>
+        </div>
+      </div>
+      <div class="container home-hero__foot">
+        <div class="hero-aksara aksara-wrap" data-aksara="ruwa jurai" data-aksara-decor aria-hidden="true"></div>
+        <div class="home-hero__footright">
+          <div class="hero-seal">
+            <svg viewBox="0 0 80 80" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="40" cy="40" r="37" opacity=".4"/>
+              <circle cx="40" cy="40" r="29" stroke-dasharray="2 5" opacity=".5"/>
+              <path d="M40 14 46 34 66 40 46 46 40 66 34 46 14 40 34 34Z" stroke-width="1.2"/>
+              <circle cx="40" cy="40" r="3" fill="currentColor" stroke="none"/>
+              <text x="40" y="76" text-anchor="middle" font-size="5.5" letter-spacing="1.4" fill="currentColor" stroke="none" font-family="serif">DRAF KURASI 2026</text>
+            </svg>
+            <span>Konten budaya dalam proses validasi tokoh adat &amp; ahli bahasa.</span>
+          </div>
+          <a class="hero-scroll" href="#jelajah"><span>Turun</span><span class="line" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIBBON -->
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <div class="ribbon__group">
+          <span>Siger</span><span>Tapis</span><span>Seruit</span><span>Piil Pesenggiri</span><span>Sekura</span><span>Gamolan</span><span>Aksara</span><span>Nyambai</span>
+        </div>
+        <div class="ribbon__group">
+          <span>Siger</span><span>Tapis</span><span>Seruit</span><span>Piil Pesenggiri</span><span>Sekura</span><span>Gamolan</span><span>Aksara</span><span>Nyambai</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="section home-intro" id="jelajah">
+      <div class="container home-intro__grid">
+        <div class="home-intro__title reveal">
+          <p class="eyebrow">Selamat datang</p>
+          <h2>Bukan sekadar <em>katalog</em>.</h2>
+          <p class="section-index" style="margin-top:22px">RUWA · JURAI</p>
+        </div>
+        <div class="home-intro__body reveal" data-reveal="right">
+          <p class="lead">Ruwa Jurai adalah ruang cerita untuk mengenal Lampung tanpa membuatnya membeku dalam satu gambar.</p>
+          <p>Kami merangkum adat, kuliner, bahasa, dan warisan dari 15 kabupaten/kota—lalu menandai apa yang masih perlu ditanyakan. Sebab Lampung bukan satu suara: ada Saibatin di pesisir, Pepadun di pedalaman, Melinting di timur, dan banyak komunitas lain yang saling bersinggungan.</p>
+          <p>Di sini, belajar bisa lewat membaca, menjelajah peta, menulis aksara, atau bermain. Semuanya dirancang untuk membawamu pulang dengan satu pertanyaan baru.</p>
+          <div class="home-facts">
+            <div class="home-fact"><b>11</b><span>Tema budaya</span></div>
+            <div class="home-fact"><b>8</b><span>Bahan pangan</span></div>
+            <div class="home-fact"><b>5</b><span>Permainan</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATHWAYS -->
+    <section class="section section--flush" aria-labelledby="path-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="section-index reveal">01 — Pintu masuk</p>
+            <h2 class="section-lede" id="path-title" style="margin-top:14px">Pilih jalanmu <em>menuju Lampung.</em></h2>
+          </div>
+          <div class="section-head__side reveal" data-reveal="right">
+            <p>Tiga cara memulai: membaca cerita, mengecap rasa, atau melihat keterhubungan wilayah. Tidak ada urutan yang salah.</p>
+            <a class="link-arrow" href="peta.html">Lihat peta jelajah <span data-icon="arrow-up-right"></span></a>
+          </div>
+        </div>
+        <div class="pathways">
+          <a class="path-card reveal" href="ensiklopedia.html" style="--delay:0ms">
+            <div class="path-card__top"><span class="path-card__num">01</span><span class="path-card__tag">Ensiklopedia</span></div>
+            <div class="path-card__art" data-motif-panel="mask" aria-hidden="true"></div>
+            <div class="path-card__body">
+              <h3>Adat &amp;<br>cerita</h3>
+              <p>Dari Piil Pesenggiri sampai Sekura: 22 entri yang dibaca pelan-pelan, bukan dihafal cepat.</p>
+              <div class="path-card__foot"><span>22 entri · 11 tema</span><span class="path-card__arrow" data-icon="right"></span></div>
+            </div>
+          </a>
+          <a class="path-card reveal" href="kuliner.html" style="--delay:80ms">
+            <div class="path-card__top"><span class="path-card__num">02</span><span class="path-card__tag">Kuliner</span></div>
+            <div class="path-card__art" data-motif-panel="seruit" aria-hidden="true"></div>
+            <div class="path-card__body">
+              <h3>Rasa &amp;<br>dapur</h3>
+              <p>Seruit, pindang baung, gulai taboh—sembilan hidangan dengan cerita, bahan, dan resep yang bisa dicoba.</p>
+              <div class="path-card__foot"><span>9 hidangan · 8 bahan</span><span class="path-card__arrow" data-icon="right"></span></div>
+            </div>
+          </a>
+          <a class="path-card reveal" href="peta.html" style="--delay:160ms">
+            <div class="path-card__top"><span class="path-card__num">03</span><span class="path-card__tag">Peta</span></div>
+            <div class="path-card__art" data-motif-panel="compass" aria-hidden="true"></div>
+            <div class="path-card__body">
+              <h3>Wilayah &amp;<br>jejak</h3>
+              <p>Jelajahi 15 kabupaten/kota dengan batas wilayah resmi, lalu temukan cerita di tiap sudutnya.</p>
+              <div class="path-card__foot"><span>15 wilayah · 4 rumpun adat</span><span class="path-card__arrow" data-icon="right"></span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section" aria-labelledby="sorotan-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__title reveal">
+            <p class="eyebrow">Sorotan</p>
+            <h2 id="sorotan-title">Cerita yang <em class="italic">layak</em> singgah.</h2>
+          </div>
+          <div class="rail-nav reveal" data-reveal="right" aria-label="Geser sorotan">
+            <button type="button" data-rail-prev aria-label="Sorotan sebelumnya"><span data-icon="left"></span></button>
+            <button type="button" data-rail-next aria-label="Sorotan berikutnya"><span data-icon="right"></span></button>
+          </div>
+        </div>
+        <div class="rail-wrap">
+          <div class="rail reveal" id="highlight-rail" tabindex="0" aria-label="Sorotan budaya dan kuliner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAI -->
+    <section class="section sai-feature" aria-labelledby="sai-title">
+      <div class="container sai-feature__grid">
+        <div class="sai-feature__visual reveal" data-reveal="left">
+          <span class="sai-feature__ring" aria-hidden="true"></span>
+          <div data-mascot></div>
+        </div>
+        <div class="sai-feature__copy reveal" data-reveal="right">
+          <p class="eyebrow">Kenalan dengan pemandumu</p>
+          <h2 id="sai-title">Sai, gajah kecil<br>yang <em>ingin tahu.</em></h2>
+          <p>Sai membawa siger di kepala, tapis di badan, dan tangan yang selalu terbuka. Ia bukan ahli warisan—ia teman belajar yang rajin bertanya. Nama “Sai” adalah nama kerja dan masih terbuka untuk dikoreksi bersama pemilik tradisi.</p>
+          <div class="sai-attrs" data-sai-attrs></div>
+          <div class="sai-feature__actions">
+            <a class="btn btn--gold" href="tentang.html#maskot">Kenali atributnya <span data-icon="right"></span></a>
+            <a class="btn btn--on-dark" href="gawi.html">Ajak Sai bermain</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RASA -->
+    <section class="section rasa-feature" aria-labelledby="rasa-title">
+      <div class="container rasa-feature__grid">
+        <div class="rasa-feature__art reveal" data-reveal="left" data-dish="seruit"></div>
+        <div class="rasa-feature__copy reveal" data-reveal="right">
+          <p class="eyebrow">Dari dapur Lampung</p>
+          <h2 id="rasa-title">Satu piring,<br><em>semua cerita.</em></h2>
+          <p><strong style="color:#fff8ea">Seruit</strong> adalah ikan, sambal, dan buah asam yang diaduk jadi satu. Ia tidak disajikan untuk satu orang: piringnya lebar, duduknya melingkar, dan ceritanya biasanya lebih panjang daripada waktunya.</p>
+          <div class="flavor-mini" id="seruit-flavor"></div>
+          <div class="home-hero__actions" style="margin-top:22px">
+            <a class="btn btn--gold" href="kuliner.html?hidangan=seruit">Lihat resep lengkap <span data-icon="right"></span></a>
+            <a class="btn btn--on-dark" href="kuliner.html">Semua hidangan</a>
+          </div>
+          <div class="rasa-feature__links" style="margin-top:18px">
+            <a href="kuliner.html?hidangan=pindang-baung">Pindang baung</a>
+            <a href="kuliner.html?hidangan=gulai-taboh">Gulai taboh</a>
+            <a href="kuliner.html?hidangan=kopi-robusta">Kopi robusta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PETA -->
+    <section class="section map-teaser" aria-labelledby="peta-title">
+      <div class="container map-teaser__grid">
+        <div class="map-teaser__art" id="home-map" aria-label="Peta mini 15 kabupaten/kota Lampung"></div>
+        <div class="map-teaser__copy reveal" data-reveal="right">
+          <p class="eyebrow">Peta jelajah</p>
+          <h2 id="peta-title">Lampung tidak<br><em>selesai dalam satu titik.</em></h2>
+          <p style="color:rgba(245,239,226,.65);font-size:.9rem;line-height:1.75;max-width:48ch;margin-top:18px">Dari Krui di pesisir barat sampai Melinting di timur, setiap wilayah punya warna adat, bahan pangan, dan cerita yang berbeda. Peta ini menggunakan batas kabupaten/kota dari data BIG 2026.</p>
+          <div class="map-teaser__card" id="home-map-card" aria-live="polite"></div>
+          <div class="map-teaser__chips" id="home-map-chips"></div>
+          <a class="btn btn--gold" style="margin-top:22px" href="peta.html">Buka peta interaktif <span data-icon="map"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" aria-labelledby="garis-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="section-index reveal">02 — Konteks</p>
+            <h2 class="section-lede" id="garis-title" style="margin-top:14px">Waktu yang <em>membentuk</em> Lampung.</h2>
+          </div>
+          <div class="section-head__side reveal" data-reveal="right">
+            <p>Ini tematik, bukan kronologi lengkap. Sebuah pengingat bahwa budaya selalu bergerak—termasuk saat kita sedang menuliskannya.</p>
+            <a class="link-arrow" href="ensiklopedia.html#garis-waktu">Garis waktu lengkap <span data-icon="right"></span></a>
+          </div>
+        </div>
+        <div class="timeline-rail reveal" id="home-timeline"></div>
+      </div>
+    </section>
+
+    <!-- GAWI -->
+    <section class="section games-teaser" aria-labelledby="gawi-title">
+      <div class="container games-teaser__grid">
+        <div class="games-teaser__copy reveal" data-reveal="left">
+          <p class="eyebrow">Gawi · dolan sambil belajar</p>
+          <h2 id="gawi-title" style="margin-top:14px">Belajar sambil<br><em class="italic">bermain.</em></h2>
+          <p>Lima permainan kecil untuk menguji ingatan, ketelitian, dan rasa penasaranmu. Tidak ada peringkat nasional—hanya Sai yang bersorak pelan di sudut layar.</p>
+          <div class="home-hero__actions" style="margin-top:22px">
+            <a class="btn" href="gawi.html">Masuk Gawi <span data-icon="gamepad"></span></a>
+          </div>
+          <div class="games-teaser__mascot" data-mascot="bare" aria-hidden="true">
+            <div class="bubble">Mulai dari yang paling mudah? Aku temani.</div>
+          </div>
+        </div>
+        <div class="game-mini-grid reveal" data-reveal="right" id="home-games"></div>
+      </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section class="section" aria-labelledby="agenda-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__title reveal">
+            <p class="eyebrow">Agenda</p>
+            <h2 id="agenda-title">Yang <em class="italic">sedang</em> berlangsung.</h2>
+          </div>
+          <a class="link-arrow reveal" href="agenda.html" data-reveal="right">Kalender budaya <span data-icon="right"></span></a>
+        </div>
+        <div class="agenda-strip reveal" id="home-agenda"></div>
+        <p class="tiny faint" style="margin-top:16px;max-width:70ch">Tanggal bersifat perkiraan dan dapat berubah. Selalu konfirmasi kepada penyelenggara atau pemangku adat setempat.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <p class="eyebrow">Bawa pulang ceritanya</p>
+            <h2>Budaya bukan <em>latar</em>.<br>Ia cara kita hidup bersama.</h2>
+            <p>Gunakan Ruwa Jurai untuk belajar, mengajar, atau merancang karya—dengan menyebut sumber dan menghormati pemilik tradisi. Setiap cerita punya rumah.</p>
+          </div>
+          <div class="cta-band__actions">
+            <div class="cta-band__aksara aksara-wrap" data-aksara="sai bumi" data-aksara-decor aria-hidden="true"></div>
+            <a class="btn btn--gold" href="tentang.html">Baca etika kurasi <span data-icon="right"></span></a>
+            <a class="btn btn--on-dark" href="agenda.html">Kirim agenda budaya</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

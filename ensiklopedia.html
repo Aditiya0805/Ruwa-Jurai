@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ensiklopedia Adat Lampung — Ruwa Jurai</title>
+  <meta name="description" content="Ensiklopedia budaya Lampung: Saibatin, Pepadun, Piil Pesenggiri, tapis, siger, aksara, dan 22 entri yang dikurasi dengan hati-hati.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Ensiklopedia Adat Lampung — Ruwa Jurai">
+  <meta property="og:description" content="Adat yang hidup, bukan sekadar daftar. Jelajahi 22 entri budaya Lampung.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/interior.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/ensiklopedia.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="ensiklopedia" data-header="solid">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <nav class="crumb" aria-label="Jejak navigasi">
+          <a href="index.html">Beranda</a><span data-icon="chevron-right"></span><span>Ensiklopedia</span>
+        </nav>
+        <p class="eyebrow" style="margin-top:22px">Ensiklopedia · Sai Bumi Ruwa Jurai</p>
+        <h1>Adat yang <em>hidup,</em><br>bukan sekadar daftar.</h1>
+        <p class="page-hero__lead">
+          Dua puluh dua pintu masuk untuk mengenal Lampung: dari falsafah Piil Pesenggiri
+          sampai benang emas tapis, dari musyawarah marga sampai aksara yang menari di atas kertas.
+          Setiap entri ditulis dengan catatan: ini draf kurasi, dan tradisi selalu lebih kaya daripada halaman ini.
+        </p>
+        <div class="page-hero__meta">
+          <span><b>22</b> entri</span><span class="dot"></span>
+          <span><b>11</b> tema</span><span class="dot"></span>
+          <span><b>15</b> kabupaten/kota</span><span class="dot"></span>
+          <span><b>7</b> sumber rujukan</span>
+        </div>
+        <div class="page-jump" aria-label="Lompat ke bagian">
+          <a href="#koleksi" data-goto="#koleksi">Koleksi entri</a>
+          <a href="#garis-waktu" data-goto="#garis-waktu">Garis waktu</a>
+          <a href="#catatan-kurasi" data-goto="#catatan-kurasi">Catatan kurasi</a>
+          <a href="kamus.html">Kamus &amp; aksara</a>
+        </div>
+      </div>
+      <div class="page-hero__art" data-ornament="book" aria-hidden="true"></div>
+      <div class="page-hero__aside">
+        <span class="aksara-wrap" data-aksara="adat" data-aksara-decor aria-hidden="true" style="width:130px;color:var(--gold)"></span>
+        <span>adat · 22 entri</span>
+      </div>
+    </section>
+
+    <section class="page-section page-section--top" id="koleksi">
+      <div class="container">
+        <div class="entry-toolbar-outer">
+          <div class="toolbar is-sticky" role="search" aria-label="Cari dan filter ensiklopedia">
+            <div class="toolbar__search">
+              <span data-icon="search"></span>
+              <input id="entry-search" type="search" placeholder="Cari adat, tokoh, benda, atau kata kunci…" autocomplete="off" aria-label="Cari entri ensiklopedia">
+              <button class="toolbar__clear" type="button" id="entry-clear" aria-label="Bersihkan pencarian"><span data-icon="close"></span></button>
+            </div>
+            <div class="toolbar__divider" aria-hidden="true"></div>
+            <div class="filter-chips" id="entry-cats" aria-label="Filter kategori"></div>
+            <div class="toolbar__divider" aria-hidden="true"></div>
+            <div class="view-toggle" role="group" aria-label="Tampilan daftar">
+              <button type="button" data-view="grid" aria-pressed="true" aria-label="Tampilan kisi"><span data-icon="grid"></span></button>
+              <button type="button" data-view="list" aria-pressed="false" aria-label="Tampilan daftar"><span data-icon="file-text"></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <span class="result-count" id="entry-count" aria-live="polite"></span>
+          <div class="flex gap-2 items-center" style="flex-wrap:wrap">
+            <button class="chip" type="button" id="entry-fav-filter" aria-pressed="false"><span data-icon="heart"></span> Tersimpan <span id="entry-fav-count">0</span></button>
+            <label class="flex items-center gap-2 tiny faint" style="gap:7px">
+              <span data-icon="filter"></span>
+              <select class="select" id="entry-sort" aria-label="Urutkan entri" style="padding:7px 30px 7px 10px;font-size:.67rem">
+                <option value="kurasi">Pilihan kurasi</option>
+                <option value="az">Judul A–Z</option>
+                <option value="kategori">Kategori</option>
+                <option value="wilayah">Wilayah</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="entry-grid" id="entry-grid"></div>
+        <div class="empty-state" id="entry-empty" hidden>
+          <span data-icon="search"></span>
+          <h3>Belum ada yang cocok</h3>
+          <p>Coba kata kunci lain, atau hapus filter yang aktif.</p>
+          <button class="btn btn--outline btn--sm" type="button" id="entry-reset" style="margin-top:16px">Atur ulang pencarian</button>
+        </div>
+        <p class="tiny faint" style="margin-top:20px;max-width:76ch">
+          Entri ditulis sebagai pengantar, bukan rujukan akademik final. Istilah, urutan upacara, dan tafsir dapat berbeda
+          antarmarga, antardialek, dan antarwilayah. Selalu utamakan penjelasan pemangku adat setempat.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section timeline-section" id="garis-waktu">
+      <div class="container">
+        <div class="timeline-head">
+          <div>
+            <p class="eyebrow">Garis waktu tematik</p>
+            <h2 class="section-lede" style="margin-top:12px">Waktu yang <em>membentuk</em> Lampung.</h2>
+          </div>
+          <p>Ini bukan kronologi lengkap, melainkan delapan simpul untuk memahami bagaimana pesisir, pedalaman, kolonialisme, dan republik saling bertumpuk. Beberapa penanggalan bersifat perkiraan.</p>
+        </div>
+        <div class="timeline-list" id="timeline-list"></div>
+        <div class="editorial-note" style="margin-top:26px">
+          <span data-icon="info"></span>
+          <span><b>Cara membaca:</b> garis waktu budaya tidak selalu linear. Tradisi lisan bisa hidup lama tanpa tanggal, dan sebuah peristiwa politik tidak otomatis mengubah praktik adat di semua wilayah.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="catatan-kurasi">
+      <div class="container">
+        <div class="home-intro__grid">
+          <div class="reveal">
+            <p class="eyebrow">Catatan kurasi</p>
+            <h2 class="section-lede" style="margin-top:12px">Belajar tanpa <em>membekukan.</em></h2>
+            <div class="page-jump" style="margin-top:22px">
+              <a href="tentang.html#kurasi">Etika kurasi lengkap</a>
+              <a href="tentang.html#sumber">Sumber &amp; lisensi</a>
+            </div>
+          </div>
+          <div class="reveal" data-reveal="right">
+            <p class="lead">Ruang ini tidak berbicara untuk semua orang Lampung. Ia menyediakan pintu, lalu mempersilakan tamu bertanya.</p>
+            <p style="margin-top:18px;color:var(--ink-soft);font-size:.92rem;line-height:1.75">Kami membedakan tiga tingkat keyakinan: hal yang banyak dirujuk, hal yang lazim tetapi bervariasi, dan hal yang masih kami tandai sebagai pertanyaan. Istilah asing bagi pembaca tidak langsung diganti—kadang justru di situlah cerita dimulai.</p>
+            <div class="editorial-note" style="margin-top:20px">
+              <span data-icon="shield"></span>
+              <span><b>Mohon koreksi kami.</b> Jika kamu pemangku adat, penutur bahasa, atau warga setempat dan menemukan kekeliruan, tulis ke <a class="tlink" href="mailto:halo@ruwajurai.id">halo@ruwajurai.id</a>. Kami cantumkan perbaikan beserta konteksnya.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <p class="eyebrow">Lanjutkan perjalanan</p>
+            <h2>Dari cerita ke <em>tempat.</em></h2>
+            <p>Setiap entri punya rumah geografis. Buka peta untuk melihat kabupaten/kota yang paling sering disebut, lalu temukan kuliner yang tumbuh di sana.</p>
+          </div>
+          <div class="cta-band__actions">
+            <div class="cta-band__aksara aksara-wrap" data-aksara="lampung" data-aksara-decor aria-hidden="true"></div>
+            <a class="btn btn--gold" href="peta.html">Buka peta budaya <span data-icon="map"></span></a>
+            <a class="btn btn--on-dark" href="kuliner.html">Jelajahi kuliner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

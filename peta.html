@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peta Budaya Lampung — Ruwa Jurai</title>
+  <meta name="description" content="Jelajahi 15 kabupaten/kota di Lampung lewat peta interaktif: batas wilayah BIG 2026, rumpun adat, cerita, dan kuliner setempat.">
+  <meta name="theme-color" content="#142b23">
+  <meta property="og:title" content="Peta Budaya Lampung — Ruwa Jurai">
+  <meta property="og:description" content="Lampung tidak selesai dalam satu titik. Buka peta interaktif 15 kabupaten/kota.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-ruwa-jurai.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/interior.css">
+  <script defer src="assets/js/glyphs.js"></script>
+  <script defer src="assets/js/aksara.js"></script>
+  <script defer src="assets/js/icons.js"></script>
+  <script defer src="assets/js/illustrations.js"></script>
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/map-data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/peta.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ruwa Jurai">
+  <script defer src="assets/js/sw-register.js"></script>
+</head>
+<body data-page="peta" data-header="solid">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="page-hero page-hero--peta">
+      <div class="container page-hero__inner">
+        <nav class="crumb" aria-label="Jejak navigasi">
+          <a href="index.html">Beranda</a><span data-icon="chevron-right"></span><span>Peta</span>
+        </nav>
+        <p class="eyebrow" style="margin-top:22px">Peta jelajah · 15 kabupaten/kota</p>
+        <h1>Satu bumi,<br><em>lima belas wajah.</em></h1>
+        <p class="page-hero__lead">
+          Lampung bukan satu titik di ujung Sumatra. Ia lanskap yang bergerak dari ombak Krui
+          ke danau vulkanik, dari kebun kopi dataran tinggi ke muara yang sibuk.
+          Peta ini memakai batas kabupaten/kota resmi—tetapi adat tidak selalu mengikuti garis administrasi.
+        </p>
+        <div class="page-hero__meta">
+          <span><b>15</b> kabupaten/kota</span><span class="dot"></span>
+          <span><b>4</b> rumpun adat</span><span class="dot"></span>
+          <span><b>BIG 2026</b> batas wilayah</span><span class="dot"></span>
+          <span>Peta dapat digeser &amp; diperbesar</span>
+        </div>
+        <div class="page-jump" aria-label="Lompat ke bagian">
+          <a href="#peta" data-goto="#peta">Peta interaktif</a>
+          <a href="#rute" data-goto="#rute">Rute jelajah</a>
+          <a href="ensiklopedia.html">Baca entri</a>
+          <a href="tentang.html#sumber">Sumber data</a>
+        </div>
+      </div>
+      <div class="page-hero__art" data-ornament="compass" aria-hidden="true"></div>
+      <div class="page-hero__aside">
+        <span class="aksara-wrap" data-aksara="lampung" data-aksara-decor aria-hidden="true" style="width:130px;color:var(--forest)"></span>
+        <span>peta · 15 wilayah</span>
+      </div>
+    </section>
+
+    <section class="page-section page-section--top map-page" id="peta">
+      <div class="container">
+        <div class="section-head section-head--split" style="margin-bottom:24px">
+          <div>
+            <p class="section-index">01 — Wilayah</p>
+            <h2 class="section-lede" style="margin-top:12px">Klik wilayah,<br><em>temukan ceritanya.</em></h2>
+          </div>
+          <div class="section-head__side">
+            <p>Gunakan kursor atau papan ketik untuk memilih wilayah. Filter rumpun adat membantu melihat pola, tetapi tiap wilayah bisa memiliki lebih dari satu komunitas.</p>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <div class="map-panel" id="map-panel">
+            <div class="map-toolbar">
+              <div class="map-search">
+                <span data-icon="search"></span>
+                <input id="region-search" type="search" placeholder="Cari kabupaten, ibu kota…" aria-label="Cari wilayah" autocomplete="off">
+              </div>
+              <div class="map-controls" role="group" aria-label="Kontrol peta">
+                <button type="button" data-map-zoom="in" aria-label="Perbesar peta" data-tip="Perbesar"><span data-icon="zoom-in"></span></button>
+                <button type="button" data-map-zoom="out" aria-label="Perkecil peta" data-tip="Perkecil"><span data-icon="zoom-out"></span></button>
+                <button type="button" data-map-label aria-label="Tampilkan nama wilayah" aria-pressed="false" data-tip="Nama wilayah"><span data-icon="type"></span></button>
+                <button type="button" data-map-reset aria-label="Kembalikan tampilan peta" data-tip="Atur ulang"><span data-icon="rotate"></span></button>
+              </div>
+            </div>
+            <div class="map-canvas" id="map-canvas">
+              <svg class="map-svg" id="map-svg" viewBox="0 0 800 900" role="group" aria-label="Peta interaktif kabupaten dan kota di Lampung" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+            <div class="map-tooltip" id="map-tooltip" role="status"></div>
+            <div class="map-legend" aria-label="Legenda rumpun adat">
+              <span><i class="saibatin"></i> Saibatin</span>
+              <span><i class="pepadun"></i> Pepadun</span>
+              <span><i class="melinting"></i> Melinting</span>
+              <span><i class="lintas"></i> Lintas adat</span>
+            </div>
+            <div class="map-source">Batas: BIG 2026 · digambar ulang untuk Ruwa Jurai</div>
+          </div>
+
+          <div class="map-side">
+            <div class="region-info" id="region-info" aria-live="polite">
+              <div class="region-info__head">
+                <span class="region-info__tag">Pilih wilayah</span>
+                <h2>Lampung</h2>
+                <p><span data-icon="pin"></span> 15 kabupaten/kota</p>
+              </div>
+              <div class="region-info__body">
+                <p class="region-info__summary">Klik salah satu wilayah pada peta atau daftar untuk membaca ringkasan, cerita budaya, dan kuliner yang terkait.</p>
+                <div class="region-highlights"><span>Pesisir</span><span>Dataran tinggi</span><span>Muara</span><span>Kota</span></div>
+              </div>
+            </div>
+
+            <div class="map-filters" id="map-filters" aria-label="Sorot rumpun adat">
+              <button class="chip chip--active" type="button" data-adat="all">Semua</button>
+              <button class="chip" type="button" data-adat="saibatin"><i class="saibatin" style="width:7px;height:7px;border-radius:2px;background:#b45567"></i> Saibatin</button>
+              <button class="chip" type="button" data-adat="pepadun"><i class="pepadun" style="width:7px;height:7px;border-radius:2px;background:#568e74"></i> Pepadun</button>
+              <button class="chip" type="button" data-adat="melinting"><i class="melinting" style="width:7px;height:7px;border-radius:2px;background:#c7903e"></i> Melinting</button>
+              <button class="chip" type="button" data-adat="lintas">Lintas</button>
+            </div>
+
+            <div class="region-list">
+              <div class="region-list__head"><span>Daftar wilayah</span><span id="region-list-count">15</span></div>
+              <div class="region-list__scroll" id="region-list"></div>
+            </div>
+
+            <div class="map-stats">
+              <div class="map-stat"><b>4</b><span>Saibatin</span></div>
+              <div class="map-stat"><b>6</b><span>Pepadun</span></div>
+              <div class="map-stat"><b>1</b><span>Melinting</span></div>
+            </div>
+            <p class="tiny faint">Rumpun adat di sini adalah penyederhanaan editorial. Banyak wilayah merupakan ruang bertemu beberapa komunitas sekaligus.</p>
+          </div>
+        </div>
+
+        <div class="editorial-note" style="margin-top:22px">
+          <span data-icon="info"></span>
+          <span><b>Batas ≠ budaya.</b> Garis kabupaten/kota membantu kita menemukan tempat, tetapi tidak menentukan identitas orang. Sebuah marga atau tradisi bisa melintasi dua wilayah; sebuah kota bisa menjadi rumah bagi banyak adat.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section route-section" id="rute">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="section-index">02 — Rute</p>
+            <h2 class="section-lede" style="margin-top:12px">Tiga cara <em>menyusuri.</em></h2>
+          </div>
+          <div class="section-head__side">
+            <p>Rute ini adalah undangan, bukan jadwal perjalanan resmi. Periksa akses jalan, musim, dan agenda setempat sebelum berangkat.</p>
+          </div>
+        </div>
+        <div class="route-grid">
+          <article class="route-card">
+            <div class="route-card__no">01</div>
+            <h3>Jalur pesisir barat</h3>
+            <p>Ombak, kopi, dan pasar ikan. Cocok untuk perjalanan lambat yang tidak mengejar banyak titik.</p>
+            <ol>
+              <li>Krui — pasar &amp; pantai</li>
+              <li>Pesisir Barat — kebun kopi</li>
+              <li>Liwa — gerbang dataran tinggi</li>
+              <li>Danau Ranau — jeda panjang</li>
+            </ol>
+          </article>
+          <article class="route-card">
+            <div class="route-card__no">02</div>
+            <h3>Jalur pedalaman</h3>
+            <p>Dari pusat tenun ke rumah adat, dengan catatan bahwa kunjungan harus melalui izin dan tata krama setempat.</p>
+            <ol>
+              <li>Metro — titik transit</li>
+              <li>Gunung Sugih — pasar pagi</li>
+              <li>Lampung Tengah — tapis &amp; kebun</li>
+              <li>Way Kanan — lanskap sungai</li>
+            </ol>
+          </article>
+          <article class="route-card">
+            <div class="route-card__no">03</div>
+            <h3>Jalur sejarah</h3>
+            <p>Menelusuri jejak yang lebih tua dari kota: situs megalitik, museum, dan pesisir timur.</p>
+            <ol>
+              <li>Bandar Lampung — museum</li>
+              <li>Pugung Raharjo — situs</li>
+              <li>Sukadana — Melinting</li>
+              <li>Lampung Selatan — pantai</li>
+            </ol>
+          </article>
+        </div>
+        <div class="agenda-note" style="margin-top:20px">
+          <span data-icon="shield"></span>
+          <span><b>Berkunjung dengan hormat:</b> tidak semua upacara terbuka untuk umum. Tanyakan izin, hindari dokumentasi yang mengganggu, dan utamakan pemandu dari komunitas setempat.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <div>
+            <p class="eyebrow">Peta hanyalah awal</p>
+            <h2>Setiap garis punya <em>cerita.</em></h2>
+            <p>Setelah menemukan wilayah, buka entri budaya atau hidangan yang tumbuh di sana. Kamu juga bisa mulai dari kamus untuk mengenali istilah yang muncul di peta.</p>
+          </div>
+          <div class="cta-band__actions">
+            <div class="cta-band__aksara aksara-wrap" data-aksara="bumi" data-aksara-decor aria-hidden="true"></div>
+            <a class="btn btn--gold" href="ensiklopedia.html">Buka ensiklopedia <span data-icon="book"></span></a>
+            <a class="btn btn--on-dark" href="kuliner.html">Cari rasa setempat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>
