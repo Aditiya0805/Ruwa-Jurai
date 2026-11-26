@@ -278,18 +278,19 @@
         ${Array.from({ length: 48 }).map((_, i) => {
           const x = (i * 157 + 83) % 1560 + 20;
           const y = (i * 97 + 41) % 560 + 30;
-          const r = i % 7 === 0 ? 1.8 : 1;
-          return `<circle cx="${x}" cy="${y}" r="${r}" fill="#f3dca7" opacity="${(0.15 + (i % 4) * 0.11).toFixed(2)}"/>`;
+          const r = i % 7 === 0 ? 1.9 : 1.1;
+          const delay = ((i % 9) * 0.45).toFixed(2);
+          return `<circle class="hero-star" style="--d:${delay}s" cx="${x}" cy="${y}" r="${r}" fill="#f3dca7" opacity="${(0.18 + (i % 4) * 0.14).toFixed(2)}"/>`;
         }).join('')}
       </g>
 
       <g data-depth="0.04" class="hero-scene__glow">
         <circle cx="1060" cy="430" r="470" fill="url(#${p}glow)"/>
-        <circle cx="1060" cy="430" r="240" fill="none" stroke="#e9c77a" stroke-width="1" opacity=".22"/>
-        <circle cx="1060" cy="430" r="292" fill="none" stroke="#e9c77a" stroke-width="1" opacity=".12" stroke-dasharray="3 10"/>
+        <circle class="hero-sun-ring" cx="1060" cy="430" r="240" fill="none" stroke="#e9c77a" stroke-width="1" opacity=".22"/>
+        <circle class="hero-sun-ring hero-sun-ring--slow" cx="1060" cy="430" r="292" fill="none" stroke="#e9c77a" stroke-width="1" opacity=".14" stroke-dasharray="3 10"/>
         <circle cx="1060" cy="430" r="196" fill="url(#${p}gold)" opacity=".9"/>
         <circle cx="1060" cy="430" r="196" fill="url(#${p}sunPattern)" opacity=".55"/>
-        <g fill="none" stroke="#f2d48f" stroke-width="1.2" opacity=".4">
+        <g class="hero-sun-rays" fill="none" stroke="#f2d48f" stroke-width="1.2" opacity=".4">
           ${Array.from({ length: 18 }).map((_, i) => {
             const a = (i / 18) * Math.PI * 2;
             const x1 = 1060 + Math.cos(a) * 228;

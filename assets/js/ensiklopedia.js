@@ -89,15 +89,17 @@
     return out;
   }
 
-  function cardHTML(e) {
+  function cardHTML(e, idx = 0) {
     const cat = catById[e.category] || { name: 'Budaya', accent: '#6a1c2b' };
     const fav = isFavorite(e.id);
     const motif = window.RJ_ART ? window.RJ_ART.motifPaths(e.motif || 'compass', 300, 300, 2.5) : '';
     const url = `?entri=${encodeURIComponent(e.id)}`;
-    return `<article class="entry-card" style="--accent:${cat.accent}" data-entry-card="${e.id}">
-      <div class="entry-card__art" aria-hidden="true">
+    const delay = Math.min(idx * 35, 350);
+    return `<article class="entry-card anim-in" style="--accent:${cat.accent};--stagger:${delay}ms" data-entry-card="${e.id}">
+      <div class="entry-card__art">
+        ${e.image ? `<img class="entry-card__img" src="${esc(e.image)}" alt="${esc(e.title)} — ${esc(e.subtitle)}" loading="lazy">` : ''}
         <span class="entry-card__cat">${esc(cat.name)}</span>
-        <svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><g color="currentColor">${motif}</g></svg>
+        <svg aria-hidden="true" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><g color="currentColor">${motif}</g></svg>
       </div>
       <button class="entry-card__bookmark" type="button" data-bookmark="${e.id}" aria-pressed="${fav}" aria-label="${fav ? 'Hapus dari simpanan' : 'Simpan entri'}">${icon('heart')}</button>
       <div class="entry-card__body">
@@ -121,8 +123,9 @@
     if (!grid) return;
     const list = sorted((D.entries || []).filter(matches));
     grid.className = `entry-grid${viewMode === 'list' ? ' is-list' : ''}`;
-    grid.innerHTML = list.map(cardHTML).join('');
+    grid.innerHTML = list.map((e, i) => cardHTML(e, i)).join('');
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(grid);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(grid);
     const empty = $('#entry-empty');
     if (empty) empty.hidden = list.length > 0;
     updateCount(list.length);
@@ -170,6 +173,7 @@
     const mapHref = firstRegion ? `peta.html?wilayah=${encodeURIComponent(firstRegion)}` : 'peta.html';
     const content = `
       <div class="detail-hero" style="--accent:${cat.accent}">
+        ${e.image ? `<div class="detail-hero__photo"><img src="${esc(e.image)}" alt="${esc(e.title)}"></div>` : ''}
         <div class="detail-hero__art" aria-hidden="true"><svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${window.RJ_ART ? window.RJ_ART.motifPaths(e.motif || 'compass', 300, 300, 2.2) : ''}</svg></div>
         <div class="detail-hero__inner">
           <div class="detail-hero__eyebrow">

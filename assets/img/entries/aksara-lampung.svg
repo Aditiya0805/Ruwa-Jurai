@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="aksbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d1a16"/>
+      <stop offset="100%" stop-color="#160d0b"/>
+    </linearGradient>
+    <radialGradient id="aksglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#d9a94f" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#d9a94f" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d9a94f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aksgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="aksmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="akstapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="aksshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#aksbg)"/>
+  <rect width="800" height="600" fill="url(#akstapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#aksglow)"/>
+  
+        <g filter="url(#aksshadow)">
+          <!-- Rolled parchment manuscript -->
+          <rect x="145" y="125" width="510" height="250" rx="14" fill="#f4e6c7" stroke="url(#aksgold)" stroke-width="4"/>
+          <rect x="165" y="143" width="470" height="214" rx="8" fill="none" stroke="#b98635" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <rect x="125" y="110" width="28" height="280" rx="12" fill="#8b5d2b" stroke="#d9a94f" stroke-width="2"/>
+          <rect x="647" y="110" width="28" height="280" rx="12" fill="#8b5d2b" stroke="#d9a94f" stroke-width="2"/>
+          <g fill="none" stroke="#6a1c2b" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(215 225) scale(0.82)"><path d="M22 84 L45 20 Q49 12 52 22 L44 62 Q41 82 50 77 L77 18"/><path d="M28 98 L46 98"/></g>
+<g transform="translate(301 225) scale(0.82)"><path d="M22 84 L62 22 Q67 14 68 26 L60 58"/><path d="M46 84 L76 44"/></g>
+<g transform="translate(387 225) scale(0.82)"><path d="M24 84 L42 24 Q45 14 51 18 Q56 22 54 40"/><path d="M33 58 L46 84"/><path d="M54 30 Q60 14 68 15 Q78 17 74 38"/><path d="M28 98 L46 98"/></g>
+<g transform="translate(473 225) scale(0.82)"><path d="M22 84 L45 20 Q49 12 52 22 L44 62 Q41 82 50 77 L77 18"/><path d="M12 30 L12 84" transform="translate(82 0)"/></g>
+</g>
+          <!-- Split bamboo strip (Bambu Surat) -->
+          <g transform="rotate(-3 400 455)">
+            <rect x="160" y="405" width="440" height="72" rx="14" fill="#dcb97c" stroke="#855a27" stroke-width="2.5"/>
+            <line x1="175" y1="441" x2="585" y2="441" stroke="#b98e4d" stroke-width="1.2" opacity="0.5"/>
+            <g fill="none" stroke="#48121d" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(215 428) scale(0.52)"><path d="M22 84 L64 22 Q70 13 74 22 L74 84"/><path d="M37 18 L51 46"/><path d="M12 30 L12 84" transform="translate(82 0)"/></g>
+<g transform="translate(294.36 428) scale(0.52)"><path d="M30 50 Q21 78 31 83 Q40 87 48 76 L73 16"/><path d="M49 64 L49 84"/><path d="M28 98 L46 98"/></g>
+<g transform="translate(356.36 428) scale(0.52)"><path d="M29 50 Q21 82 34 84 Q44 84 52 72 L74 16"/><path d="M43 50 L43 74"/></g>
+</g>
+          </g>
+          <!-- Reed stylus pen -->
+          <g transform="translate(610 385) rotate(32)">
+            <rect x="-6" y="-85" width="12" height="170" rx="5" fill="#5e321a" stroke="#d9a94f" stroke-width="1.5"/>
+            <path d="M-5 85 L0 108 L5 85 Z" fill="#d9a94f"/>
+          </g>
+        </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

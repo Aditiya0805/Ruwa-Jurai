@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="nyabg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#172d26"/>
+      <stop offset="100%" stop-color="#0d1a16"/>
+    </linearGradient>
+    <radialGradient id="nyaglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e6b868" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e6b868" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e6b868" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nyagold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="nyamaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="nyatapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="nyashadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#nyabg)"/>
+  <rect width="800" height="600" fill="url(#nyatapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#nyaglow)"/>
+  
+        <circle cx="400" cy="240" r="175" fill="none" stroke="#d9a94f" stroke-width="1" opacity="0.35"/>
+        <circle cx="400" cy="240" r="142" fill="#224438" opacity="0.65" stroke="#d9a94f" stroke-width="1.2" stroke-dasharray="5 7"/>
+        <!-- Flowing golden silk selendang ribbons -->
+        <path d="M110 290 C210 190 310 380 400 265 C490 150 590 330 690 230" fill="none" stroke="url(#nyagold)" stroke-width="18" stroke-linecap="round" opacity="0.82"/>
+        <path d="M110 290 C210 190 310 380 400 265 C490 150 590 330 690 230" fill="none" stroke="#8a2b3d" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+        <!-- Left dancer (Muli) -->
+        <g transform="translate(275 310)" filter="url(#nyashadow)">
+          <circle cx="0" cy="-95" r="22" fill="#e5c199"/>
+          <!-- Small Siger / hair ornament -->
+          <path d="M-24 -108 L-14 -132 L0 -142 L14 -132 L24 -108 Z" fill="url(#nyagold)"/>
+          <path d="M-24 -68 Q0 -78 24 -68 L42 75 L-42 75 Z" fill="url(#nyamaroon)" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-38 35 H38 L46 135 H-46 Z" fill="#17382d" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-34 55 L-18 38 L0 55 L18 38 L34 55" fill="none" stroke="#fae6b4" stroke-width="2.2"/>
+          <path d="M22 -55 Q65 -65 105 -42" fill="none" stroke="#e5c199" stroke-width="10" stroke-linecap="round"/>
+          <path d="M-22 -55 Q-58 -32 -78 5" fill="none" stroke="#e5c199" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <!-- Right dancer (Meghanai) -->
+        <g transform="translate(525 310)" filter="url(#nyashadow)">
+          <circle cx="0" cy="-98" r="22" fill="#dba97d"/>
+          <path d="M-22 -112 Q0 -138 24 -110 Z" fill="#6a1c2b" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-28 -68 Q0 -76 28 -68 L36 48 H-36 Z" fill="#1d1815" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-36 40 H36 L44 135 H-44 Z" fill="url(#nyamaroon)" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-26 -55 Q-68 -65 -105 -42" fill="none" stroke="#dba97d" stroke-width="10" stroke-linecap="round"/>
+          <path d="M26 -55 Q65 -28 82 10" fill="none" stroke="#dba97d" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <!-- Warm lantern orbs -->
+        <g fill="#fae6b4" opacity="0.7">
+          <circle cx="170" cy="115" r="7"/><circle cx="630" cy="115" r="7"/>
+          <circle cx="400" cy="88" r="5"/>
+        </g>
+        <rect x="60" y="455" width="680" height="80" rx="10" fill="#0d1e18" stroke="#d9a94f" stroke-opacity="0.3"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

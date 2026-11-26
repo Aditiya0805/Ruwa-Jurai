@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="begbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#43151f"/>
+      <stop offset="100%" stop-color="#1e0c12"/>
+    </linearGradient>
+    <radialGradient id="begglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e9c77a" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e9c77a" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e9c77a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beggold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="begmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="begtapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="begshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#begbg)"/>
+  <rect width="800" height="600" fill="url(#begtapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#begglow)"/>
+  
+        <!-- Warm archway backdrop -->
+        <path d="M140 540 V235 Q140 90 400 90 Q660 90 660 235 V540 Z" fill="#281017" stroke="url(#beggold)" stroke-width="2.5" opacity="0.8"/>
+        <path d="M165 540 V245 Q165 120 400 120 Q635 120 635 245 V540 Z" fill="none" stroke="#d9a94f" stroke-width="1" stroke-dasharray="4 6" opacity="0.5"/>
+        <!-- Hanging gold festoon -->
+        <path d="M140 165 Q270 215 400 165 Q530 215 660 165" fill="none" stroke="url(#beggold)" stroke-width="4"/>
+        <path d="M170 175 L170 198 M230 192 L230 214 M290 194 L290 216 M350 180 L350 202 M450 180 L450 202 M510 194 L510 216 M570 192 L570 214 M630 175 L630 198" stroke="#f6dda6" stroke-width="2.5"/>
+        <!-- Left 3-tier Payung Agung -->
+        <g transform="translate(230 190)" filter="url(#begshadow)">
+          <rect x="-4" y="25" width="8" height="305" fill="url(#beggold)"/>
+          <path d="M-48 45 Q0 12 48 45 Z" fill="#f5efe2" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-64 88 Q0 46 64 88 Z" fill="#f5efe2" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-82 135 Q0 85 82 135 Z" fill="#8a2b3d" stroke="#d9a94f" stroke-width="2.5"/>
+          <circle cx="0" cy="18" r="7" fill="url(#beggold)"/>
+        </g>
+        <!-- Right 3-tier Payung Agung -->
+        <g transform="translate(570 190)" filter="url(#begshadow)">
+          <rect x="-4" y="25" width="8" height="305" fill="url(#beggold)"/>
+          <path d="M-48 45 Q0 12 48 45 Z" fill="#f5efe2" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-64 88 Q0 46 64 88 Z" fill="#f5efe2" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-82 135 Q0 85 82 135 Z" fill="#8a2b3d" stroke="#d9a94f" stroke-width="2.5"/>
+          <circle cx="0" cy="18" r="7" fill="url(#beggold)"/>
+        </g>
+        <!-- Center ceremonial palanquin / tapis dais -->
+        <g transform="translate(400 375)" filter="url(#begshadow)">
+          <rect x="-125" y="105" width="250" height="38" rx="4" fill="#3a2016" stroke="#d9a94f" stroke-width="2"/>
+          <rect x="-105" y="35" width="210" height="72" rx="6" fill="url(#begmaroon)" stroke="url(#beggold)" stroke-width="2.5"/>
+          <path d="M-95 75 L-65 48 L-35 75 L-5 48 L25 75 L55 48 L85 75" fill="none" stroke="#fae6b4" stroke-width="3"/>
+          <path d="M-75 -35 L0 -75 L75 -35 L68 35 H-68 Z" fill="#d9a94f" opacity="0.92" stroke="#5d3b14" stroke-width="2"/>
+          <path d="M-45 -18 H45 L32 18 H-32 Z" fill="#48121d"/>
+        </g>
+        <rect x="70" y="518" width="660" height="40" rx="6" fill="#230e13" stroke="#d9a94f" stroke-opacity="0.35"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

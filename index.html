@@ -37,6 +37,7 @@
     <!-- HERO -->
     <section class="home-hero" id="hero">
       <div class="home-hero__scene" data-hero-scene></div>
+      <div class="hero-sparks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <span class="hero-verbs" aria-hidden="true"><b>tabik pun</b> · selamat datang di tanah ruwa jurai</span>
       <div class="container home-hero__inner">
         <div class="home-hero__copy">
@@ -140,6 +141,7 @@
         </div>
         <div class="pathways">
           <a class="path-card reveal" href="ensiklopedia.html" style="--delay:0ms">
+            <img class="path-card__photo" src="assets/img/entries/sigeh-pengunten.webp" alt="Penari Tari Sigeh Pengunten Lampung" loading="lazy">
             <div class="path-card__top"><span class="path-card__num">01</span><span class="path-card__tag">Ensiklopedia</span></div>
             <div class="path-card__art" data-motif-panel="mask" aria-hidden="true"></div>
             <div class="path-card__body">
@@ -149,6 +151,7 @@
             </div>
           </a>
           <a class="path-card reveal" href="kuliner.html" style="--delay:80ms">
+            <img class="path-card__photo" src="assets/img/dishes/seruit.webp" alt="Hidangan Seruit khas Lampung" loading="lazy">
             <div class="path-card__top"><span class="path-card__num">02</span><span class="path-card__tag">Kuliner</span></div>
             <div class="path-card__art" data-motif-panel="seruit" aria-hidden="true"></div>
             <div class="path-card__body">
@@ -158,6 +161,7 @@
             </div>
           </a>
           <a class="path-card reveal" href="peta.html" style="--delay:160ms">
+            <img class="path-card__photo" src="assets/img/scenes/route-pesisir.svg" alt="Lanskap pesisir Lampung" loading="lazy">
             <div class="path-card__top"><span class="path-card__num">03</span><span class="path-card__tag">Peta</span></div>
             <div class="path-card__art" data-motif-panel="compass" aria-hidden="true"></div>
             <div class="path-card__body">
@@ -212,7 +216,13 @@
     <!-- RASA -->
     <section class="section rasa-feature" aria-labelledby="rasa-title">
       <div class="container rasa-feature__grid">
-        <div class="rasa-feature__art reveal" data-reveal="left" data-dish="seruit"></div>
+        <div class="rasa-feature__art reveal" data-reveal="left">
+          <div class="rasa-feature__frame">
+            <img src="assets/img/dishes/seruit.webp" alt="Seruit ikan bakar Lampung dengan sambal tempoyak dan lalapan" loading="lazy">
+            <span class="steam-wisps" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="rasa-feature__chip">Ikan bakar · Sambal · Tempoyak</span>
+          </div>
+        </div>
         <div class="rasa-feature__copy reveal" data-reveal="right">
           <p class="eyebrow">Dari dapur Lampung</p>
           <h2 id="rasa-title">Satu piring,<br><em>semua cerita.</em></h2>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bedbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#19362d"/>
+      <stop offset="100%" stop-color="#0e1f19"/>
+    </linearGradient>
+    <radialGradient id="bedglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#d9a94f" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#d9a94f" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d9a94f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bedgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="bedmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="bedtapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="bedshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bedbg)"/>
+  <rect width="800" height="600" fill="url(#bedtapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#bedglow)"/>
+  
+        <circle cx="400" cy="245" r="185" fill="#1d4236" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+        <!-- Crescent moon & star accent -->
+        <path d="M620 90 A36 36 0 1 0 658 140 A28 28 0 1 1 620 90 Z" fill="url(#bedgold)" opacity="0.8"/>
+        <g filter="url(#bedshadow)">
+          <!-- Center Bedana dancers -->
+          <g transform="translate(320 315)">
+            <circle cx="0" cy="-95" r="21" fill="#e5be96"/>
+            <path d="M-22 -114 Q0 -132 22 -114 L18 -96 H-18 Z" fill="#6a1c2b" stroke="#d9a94f" stroke-width="1.5"/>
+            <path d="M-26 -70 H26 L36 32 H-36 Z" fill="#2c6b58" stroke="#d9a94f" stroke-width="2"/>
+            <path d="M-36 30 H36 L44 128 H-44 Z" fill="url(#bedmaroon)" stroke="#d9a94f" stroke-width="2"/>
+            <path d="M26 -55 L64 -74 M-26 -55 L-62 -25" stroke="#e5be96" stroke-width="9" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(480 315)">
+            <circle cx="0" cy="-95" r="21" fill="#e5be96"/>
+            <path d="M-22 -112 L0 -140 L22 -112 Z" fill="url(#bedgold)"/>
+            <path d="M-24 -70 H24 L34 25 H-34 Z" fill="url(#bedmaroon)" stroke="#d9a94f" stroke-width="2"/>
+            <path d="M-34 25 H34 L46 130 H-46 Z" fill="#2c6b58" stroke="#d9a94f" stroke-width="2"/>
+            <path d="M-24 -55 L-62 -74 M24 -55 L62 -25" stroke="#e5be96" stroke-width="9" stroke-linecap="round"/>
+          </g>
+          <!-- Rebana frame drums foreground -->
+          <g transform="translate(175 450) rotate(-14)">
+            <ellipse cx="0" cy="0" rx="68" ry="68" fill="#5e321a" stroke="#d9a94f" stroke-width="4"/>
+            <ellipse cx="0" cy="0" rx="54" ry="54" fill="#f3e1bd" stroke="#9e6d24" stroke-width="2"/>
+            <circle cx="-58" cy="-18" r="5" fill="#f6dda6"/><circle cx="58" cy="-18" r="5" fill="#f6dda6"/>
+            <circle cx="-58" cy="18" r="5" fill="#f6dda6"/><circle cx="58" cy="18" r="5" fill="#f6dda6"/>
+          </g>
+          <g transform="translate(625 455) rotate(16)">
+            <ellipse cx="0" cy="0" rx="56" ry="56" fill="#5e321a" stroke="#d9a94f" stroke-width="3.5"/>
+            <ellipse cx="0" cy="0" rx="44" ry="44" fill="#f3e1bd" stroke="#9e6d24" stroke-width="2"/>
+          </g>
+        </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

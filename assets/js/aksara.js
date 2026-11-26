@@ -154,11 +154,13 @@
     { group: 'after', key: 'nengen', latin: 'ng', name: 'Nengen', note: 'Penanda konsonan mati (tanpa vokal).' }
   ];
 
+  const akData = { letters: LETTERS, marks, glyphs: G };
   window.RJ = window.RJ || {};
   Object.assign(window.RJ, {
     toAksara,
     aksaraSvg,
     renderAksara,
-    AK_SARA: { letters: LETTERS, marks, glyphs: G }
+    AKSARA: akData,
+    AK_SARA: akData
   });
 })();

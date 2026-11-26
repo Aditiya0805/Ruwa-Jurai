@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="melbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d1e15"/>
+      <stop offset="100%" stop-color="#1c0e09"/>
+    </linearGradient>
+    <radialGradient id="melglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e5b45d" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e5b45d" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e5b45d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="melgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="melmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="meltapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="melshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#melbg)"/>
+  <rect width="800" height="600" fill="url(#meltapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#melglow)"/>
+  
+        <!-- Keratuan royal columns -->
+        <rect x="115" y="70" width="38" height="470" fill="#29120c" stroke="#d9a94f" stroke-opacity="0.45"/>
+        <rect x="647" y="70" width="38" height="470" fill="#29120c" stroke="#d9a94f" stroke-opacity="0.45"/>
+        <path d="M90 120 H710 L680 75 H120 Z" fill="url(#melmaroon)" stroke="url(#melgold)" stroke-width="2"/>
+        <!-- Giant pleated ceremonial golden fans behind -->
+        <g transform="translate(400 325)" filter="url(#melshadow)">
+          <path d="M0 0 L-190 -90 A210 210 0 0 1 190 -90 Z" fill="url(#melgold)" opacity="0.22" stroke="#f6dda6" stroke-width="1.5"/>
+          <!-- Left hand fan -->
+          <g transform="translate(-95 -42) rotate(-28)">
+            <path d="M0 0 L-62 -52 A78 78 0 0 1 62 -52 Z" fill="url(#melgold)" stroke="#684312" stroke-width="2"/>
+            <path d="M0 0 L-30 -66 M0 0 L0 -74 M0 0 L30 -66" stroke="#684312" stroke-width="1.4"/>
+          </g>
+          <!-- Right hand fan -->
+          <g transform="translate(95 -42) rotate(28)">
+            <path d="M0 0 L-62 -52 A78 78 0 0 1 62 -52 Z" fill="url(#melgold)" stroke="#684312" stroke-width="2"/>
+            <path d="M0 0 L-30 -66 M0 0 L0 -74 M0 0 L30 -66" stroke="#684312" stroke-width="1.4"/>
+          </g>
+          <!-- Royal dancer figure -->
+          <circle cx="0" cy="-120" r="23" fill="#e8c39b"/>
+          <path d="M-32 -135 L-18 -172 L0 -184 L18 -172 L32 -135 Z" fill="url(#melgold)" stroke="#684312" stroke-width="1.5"/>
+          <path d="M-28 -88 Q0 -98 28 -88 L38 15 H-38 Z" fill="url(#melmaroon)" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M-38 15 H38 L58 165 H-58 Z" fill="#17382d" stroke="url(#melgold)" stroke-width="2.5"/>
+          <path d="M-40 45 L0 15 L40 45 M-46 95 L0 65 L46 95" fill="none" stroke="#fae6b4" stroke-width="2.4"/>
+          <path d="M-28 -74 L-88 -44 M28 -74 L88 -44" stroke="#e8c39b" stroke-width="9" stroke-linecap="round"/>
+        </g>
+        <rect x="60" y="490" width="680" height="55" rx="6" fill="#21100b" stroke="#d9a94f" stroke-opacity="0.3"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

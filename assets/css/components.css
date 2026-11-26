@@ -237,6 +237,7 @@ html[data-theme='dark'] .link-arrow { color: var(--gold-2); border-color: color-
 }
 .card:hover { box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--gold) 40%, var(--line)); }
 .chip {
+  position: relative; overflow: hidden;
   display: inline-flex; align-items: center; gap: 7px;
   padding: 8px 13px; border-radius: 999px;
   border: 1px solid var(--line); background: transparent;
@@ -245,11 +246,13 @@ html[data-theme='dark'] .link-arrow { color: var(--gold-2); border-color: color-
   transition: background .2s, color .2s, border-color .2s, transform .2s;
 }
 .chip:hover { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
-.chip[aria-pressed='true'], .chip.is-active {
+.chip[aria-pressed='true'], .chip.is-active, .chip.chip--active {
   background: var(--maroon); border-color: var(--maroon); color: #fff8ea;
 }
-.chip .count { opacity: .55; font-size: .63rem; margin-left: 2px; }
-html[data-theme='dark'] .chip[aria-pressed='true'] { background: var(--gold-2); border-color: var(--gold-2); color: #2a1a10; }
+.chip .count { opacity: .65; font-size: .63rem; margin-left: 2px; }
+html[data-theme='dark'] .chip[aria-pressed='true'],
+html[data-theme='dark'] .chip.is-active,
+html[data-theme='dark'] .chip.chip--active { background: var(--gold-2); border-color: var(--gold-2); color: #2a1a10; }
 .tag {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 4px 9px; border-radius: 6px;
@@ -329,7 +332,7 @@ html[data-theme='dark'] .tag { color: var(--gold-2); }
   .footer__brand { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
-  .footer__top { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer__top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; }
   .footer__brand { grid-column: 1 / -1; }
   .footer__quote { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer__quote .quote-mark { display: none; }
@@ -523,3 +526,59 @@ html[data-motion='reduce'] .reveal { opacity: 1; transform: none; }
 /* page transition curtain (optional) */
 .page-curtain { position: fixed; inset: 0; z-index: 9500; background: var(--maroon-deep); transform: scaleY(0); transform-origin: bottom; pointer-events: none; }
 .page-curtain.is-active { transform: scaleY(1); transition: transform .35s var(--ease); }
+
+/* ---------- interactive animations & micro-effects ---------- */
+.btn-ripple {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 244, 214, .45), transparent 70%);
+  transform: scale(0); animation: btnRipple .58s var(--ease) forwards;
+}
+@keyframes btnRipple { to { transform: scale(1.6); opacity: 0; } }
+
+.spark-particle {
+  position: fixed; width: 7px; height: 7px; border-radius: 50%;
+  background: radial-gradient(circle, #fff8e2 20%, var(--gold-2) 70%, transparent 100%);
+  box-shadow: 0 0 10px rgba(217, 169, 79, .85);
+  pointer-events: none; z-index: 9600;
+  animation: sparkBurst .72s var(--ease) forwards;
+}
+@keyframes sparkBurst {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(.4); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) scale(1.2); }
+}
+
+.anim-in {
+  opacity: 0; transform: translateY(18px) scale(.985);
+  animation: cardRise .55s var(--ease) var(--stagger, 0ms) forwards;
+}
+@keyframes cardRise {
+  to { opacity: 1; transform: none; }
+}
+
+.is-swap { animation: panelSwap .38s var(--ease); }
+@keyframes panelSwap { from { opacity: .45; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.is-pop { animation: popBounce .38s var(--ease); }
+@keyframes popBounce { 40% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+.sai-svg .is-part-glow {
+  filter: drop-shadow(0 0 14px rgba(240, 202, 127, .9));
+  animation: partPulse 1.6s ease-in-out infinite;
+}
+@keyframes partPulse {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(240, 202, 127, .7)); }
+  50% { filter: drop-shadow(0 0 22px rgba(255, 240, 196, 1)); }
+}
+
+/* subtle golden cursor spotlight on interactive cards */
+.path-card, .highlight-card, .entry-card, .dish-card, .game-card, .badge-card, .route-card, .agenda-card, .ingredient-card, .taste-card, .gallery-tile, .value-card, .sdg-card {
+  will-change: transform;
+}
+.entry-card::after, .dish-card::after, .game-card::after, .agenda-card::after, .ingredient-card::after, .route-card::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 169, 79, .14), transparent 72%);
+  opacity: 0; transition: opacity .35s ease;
+}
+.entry-card:hover::after, .dish-card:hover::after, .game-card:hover::after, .agenda-card:hover::after, .ingredient-card:hover::after, .route-card:hover::after {
+  opacity: 1;
+}

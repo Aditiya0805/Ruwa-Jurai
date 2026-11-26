@@ -27,14 +27,18 @@
     return String(rounded).replace('.', ',');
   }
 
-  function dishArt(dish, cls = 'dish-svg') {
+  function dishArt(dish, cls = 'dish-img') {
+    if (dish && dish.image) {
+      return `<img class="${cls}" src="${esc(dish.image)}" alt="${esc(dish.name)} — ${esc(dish.origin || 'Lampung')}" loading="lazy">`;
+    }
     if (!window.RJ_ART) return '';
     return window.RJ_ART.dish(dish.illustration || dish.id);
   }
 
-  function cardHTML(d) {
+  function cardHTML(d, idx = 0) {
     const spice = Math.max(0, Math.min(5, Number(d.spice) || 0));
-    return `<article class="dish-card" data-open-dish="${d.id}" tabindex="0" role="button" aria-label="Buka resep ${esc(d.name)}">
+    const delay = Math.min(idx * 45, 360);
+    return `<article class="dish-card anim-in" style="--stagger:${delay}ms" data-open-dish="${d.id}" tabindex="0" role="button" aria-label="Buka resep ${esc(d.name)}">
       <div class="dish-card__art">
         ${dishArt(d)}
         <span class="dish-card__type">${esc(d.types[0] === 'oleh-oleh' ? 'Oleh-oleh' : d.types[0] === 'adat' ? 'Adat' : 'Harian')}</span>
@@ -67,12 +71,13 @@
     const grid = $('#dish-grid');
     if (!grid) return;
     const list = (D.dishes || []).filter(matches);
-    grid.innerHTML = list.map(cardHTML).join('');
+    grid.innerHTML = list.map((d, i) => cardHTML(d, i)).join('');
     const empty = $('#dish-empty');
     if (empty) empty.hidden = list.length > 0;
     const count = $('#dish-count');
     if (count) count.innerHTML = `<b>${list.length}</b> dari ${(D.dishes || []).length} hidangan`;
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(grid);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(grid);
   }
 
   function renderFilters() {
@@ -97,15 +102,19 @@
   function renderIngredients() {
     const wrap = $('#ingredient-grid');
     if (!wrap || !D.ingredients) return;
-    wrap.innerHTML = D.ingredients.map((i) => `
-      <article class="ingredient-card">
-        <span class="ingredient-card__icon">${icon(i.icon || 'leaf')}</span>
-        <h4>${esc(i.name)}</h4>
-        <p class="ingredient-card__latin">${esc(i.latin)}</p>
-        <p>${esc(i.role)}</p>
-        <div class="ingredient-card__fact"><b>Catatan</b>${esc(i.fact)}</div>
+    wrap.innerHTML = D.ingredients.map((i, idx) => `
+      <article class="ingredient-card reveal" style="--delay:${idx * 55}ms">
+        ${i.image ? `<div class="ingredient-card__media"><img src="${esc(i.image)}" alt="${esc(i.name)}" loading="lazy"></div>` : `<span class="ingredient-card__icon">${icon(i.icon || 'leaf')}</span>`}
+        <div class="ingredient-card__body">
+          <h4>${esc(i.name)}</h4>
+          <p class="ingredient-card__latin">${esc(i.latin)}</p>
+          <p>${esc(i.role)}</p>
+          <div class="ingredient-card__fact"><b>Catatan</b>${esc(i.fact)}</div>
+        </div>
       </article>`).join('');
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(wrap);
+    if (window.RJ.bindReveals) RJ.bindReveals(wrap);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(wrap);
   }
 
   function flavorBars(flavor, keys = ['pedas', 'asam', 'gurih', 'manis', 'rempah', 'smoky']) {
@@ -119,9 +128,14 @@
     const wrap = $('#taste-grid');
     if (!wrap) return;
     wrap.innerHTML = (D.dishes || []).map((d) => `
-      <article class="taste-card">
-        <h3>${esc(d.name)}</h3>
-        <p class="taste-card__origin">${esc(d.origin)} · ${esc((d.tastes || []).slice(0, 3).join(' · '))}</p>
+      <article class="taste-card" data-open-dish="${d.id}" tabindex="0" role="button" aria-label="Buka resep ${esc(d.name)}">
+        <div class="taste-card__head">
+          ${d.image ? `<img class="taste-card__thumb" src="${esc(d.image)}" alt="" loading="lazy">` : ''}
+          <div>
+            <h3>${esc(d.name)}</h3>
+            <p class="taste-card__origin">${esc(d.origin)} · ${esc((d.tastes || []).slice(0, 3).join(' · '))}</p>
+          </div>
+        </div>
         ${flavorBars(d.flavor, ['pedas', 'asam', 'gurih', 'manis'])}
       </article>`).join('');
     const io = new IntersectionObserver((entries) => {
@@ -132,6 +146,7 @@
       io.disconnect();
     }, { threshold: .15 });
     io.observe(wrap);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(wrap);
   }
 
   function dishModal(d) {
@@ -233,7 +248,12 @@
         const rows = root.querySelector('[data-ingredient-rows]');
         const value = root.querySelector('[data-serv-value]');
         const refresh = () => {
-          if (value) value.textContent = String(servings);
+          if (value) {
+            value.textContent = String(servings);
+            value.classList.remove('is-pop');
+            void value.offsetWidth;
+            value.classList.add('is-pop');
+          }
           if (!rows) return;
           rows.querySelectorAll('.qty').forEach((el) => {
             const baseQty = Number(el.dataset.base) || 0;
@@ -255,6 +275,7 @@
           if (done && Array.from(all).every((s) => s.classList.contains('is-done'))) {
             RJ.toast('Semua langkah selesai. Selamat mencoba dan bagikan ceritanya!', { title: 'Resep tuntas', icon: 'trophy', duration: 4600 });
             RJ.sound.win();
+            RJ.confetti({ count: 70 });
           }
         }));
         const shareBtn = root.querySelector('[data-share-dish]');

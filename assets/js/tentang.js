@@ -49,10 +49,33 @@
     });
   }
 
+  function bindAnatomy() {
+    const list = $('#anatomy-list');
+    const visual = $('.anatomy__visual');
+    if (!list || !visual) return;
+    const partMap = { gajah: '.sai-head', siger: '.acc-siger', tapis: '.acc-tapis', tangan: '.sai-arm--left', lengkap: '.sai-bob' };
+    const activate = (btn) => {
+      const key = btn.dataset.anatomy;
+      $$('.anatomy__item', list).forEach((el) => el.classList.toggle('is-active', el === btn));
+      const svg = visual.querySelector('.sai-svg');
+      if (!svg) return;
+      svg.querySelectorAll('.is-part-glow').forEach((el) => el.classList.remove('is-part-glow'));
+      const target = svg.querySelector(partMap[key] || '.sai-bob');
+      if (target) target.classList.add('is-part-glow');
+    };
+    list.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-anatomy]');
+      if (!btn) return;
+      activate(btn);
+      RJ.sound.tap();
+    });
+  }
+
   function init() {
     renderSdgs();
     renderSources();
     bindFaq();
+    bindAnatomy();
     const form = $('#tentang-form');
     if (form) form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -62,6 +85,7 @@
     });
     if (window.RJ.renderAksara) RJ.renderAksara(document.body);
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(document.body);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(document.body);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

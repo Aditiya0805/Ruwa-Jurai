@@ -562,20 +562,115 @@
     document.body.appendChild(toTop);
 
     // reveal
-    const revealEls = $$('.reveal');
-    if ('IntersectionObserver' in window && !prefersReduced() && document.documentElement.dataset.motion !== 'reduce') {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-inview');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      revealEls.forEach((el) => io.observe(el));
-    } else {
-      revealEls.forEach((el) => el.classList.add('is-inview'));
+    function bindReveals(root = document) {
+      const revealEls = $$('.reveal:not(.is-inview)', root);
+      if (!revealEls.length) return;
+      if ('IntersectionObserver' in window && !prefersReduced() && document.documentElement.dataset.motion !== 'reduce') {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-inview');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-inview'));
+      }
     }
+    bindReveals(document);
+    RJ.bindReveals = bindReveals;
+
+    // interactive 3D tilt + golden cursor spotlight on cards
+    function bindInteractiveCards(root = document) {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      const sel = '.path-card, .highlight-card, .entry-card, .dish-card, .game-card, .badge-card, .route-card, .agenda-card, .ingredient-card, .taste-card, .gallery-tile, .value-card, .sdg-card';
+      $$(sel, root).forEach((card) => {
+        if (card.dataset.tiltBound) return;
+        card.dataset.tiltBound = '1';
+        card.addEventListener('pointermove', (e) => {
+          if (prefersReduced() || document.documentElement.dataset.motion === 'reduce') return;
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+          const rx = ((0.5 - py) * 5.2).toFixed(2);
+          const ry = ((px - 0.5) * 6.4).toFixed(2);
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        }, { passive: true });
+        card.addEventListener('pointerleave', () => {
+          card.style.transform = '';
+          card.style.removeProperty('--mx');
+          card.style.removeProperty('--my');
+        });
+      });
+    }
+    bindInteractiveCards(document);
+    RJ.bindInteractiveCards = bindInteractiveCards;
+
+    // SVG stroke draw animation for Aksara & line motifs
+    function animateSvgStrokes(root, opts = {}) {
+      if (!root || prefersReduced() || document.documentElement.dataset.motion === 'reduce') return;
+      const paths = $$('path', root);
+      const dur = opts.duration || 700;
+      const stagger = opts.stagger || 50;
+      paths.forEach((path, i) => {
+        if (typeof path.getTotalLength !== 'function') return;
+        let len = 0;
+        try { len = path.getTotalLength(); } catch (_) { len = 0; }
+        if (!len) return;
+        path.style.strokeDasharray = `${len} ${len}`;
+        path.style.strokeDashoffset = `${len}`;
+        path.animate([
+          { strokeDashoffset: len, opacity: 0.35 },
+          { strokeDashoffset: 0, opacity: 1 }
+        ], {
+          duration: dur,
+          delay: i * stagger,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          fill: 'forwards'
+        });
+      });
+    }
+    RJ.animateSvgStrokes = animateSvgStrokes;
+
+    // Golden sparkle burst around an element (e.g. clicking Sai)
+    function burstSparks(el) {
+      if (!el || prefersReduced() || document.documentElement.dataset.motion === 'reduce') return;
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      for (let i = 0; i < 12; i++) {
+        const sp = document.createElement('span');
+        sp.className = 'spark-particle';
+        const angle = (i / 12) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+        const dist = 48 + Math.random() * 64;
+        sp.style.left = cx + 'px';
+        sp.style.top = cy + 'px';
+        sp.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+        sp.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+        document.body.appendChild(sp);
+        setTimeout(() => sp.remove(), 750);
+      }
+    }
+    RJ.burstSparks = burstSparks;
+
+    // interactive button click ripple
+    document.addEventListener('pointerdown', (e) => {
+      const btn = e.target.closest('.btn, .chip');
+      if (!btn || prefersReduced() || document.documentElement.dataset.motion === 'reduce') return;
+      const r = btn.getBoundingClientRect();
+      const rip = document.createElement('span');
+      rip.className = 'btn-ripple';
+      const size = Math.max(r.width, r.height) * 1.4;
+      rip.style.width = rip.style.height = size + 'px';
+      rip.style.left = (e.clientX - r.left - size / 2) + 'px';
+      rip.style.top = (e.clientY - r.top - size / 2) + 'px';
+      btn.appendChild(rip);
+      setTimeout(() => rip.remove(), 600);
+    }, { passive: true });
 
     // count up
     $$('[data-count]').forEach((el) => {
@@ -623,6 +718,19 @@
     // hydrate icons & aksara
     if (window.RJ.hydrateIcons) window.RJ.hydrateIcons(document.body);
     if (window.RJ.renderAksara) window.RJ.renderAksara(document.body);
+
+    // animate aksara strokes on scroll into view (after renderAksara populates SVGs)
+    if ('IntersectionObserver' in window && !prefersReduced() && document.documentElement.dataset.motion !== 'reduce') {
+      const akIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateSvgStrokes(entry.target, { duration: 900, stagger: 55 });
+            akIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      $$('[data-aksara]').forEach((el) => akIo.observe(el));
+    }
   }
 
   /* ---------------------------------------------------------

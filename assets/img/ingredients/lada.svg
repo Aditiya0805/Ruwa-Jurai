@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="ing_ladabg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f3224"/>
+      <stop offset="100%" stop-color="#0e1911"/>
+    </linearGradient>
+    <radialGradient id="ing_ladaglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#d9a94f" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#d9a94f" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d9a94f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ing_ladagold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="ing_ladamaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="ing_ladatapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="ing_ladashadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#ing_ladabg)"/>
+  <rect width="800" height="600" fill="url(#ing_ladatapis)" opacity="0.06"/>
+  <rect width="800" height="600" fill="url(#ing_ladaglow)"/>
+  
+            <path d="M340 120 Q395 260 440 460" fill="none" stroke="#3c6b47" stroke-width="9" stroke-linecap="round"/>
+            <ellipse cx="290" cy="215" rx="78" ry="48" transform="rotate(-22 290 215)" fill="#2d5b39" stroke="#85b28e" stroke-width="2"/>
+            <ellipse cx="485" cy="240" rx="82" ry="50" transform="rotate(18 485 240)" fill="#3b7048" stroke="#85b28e" stroke-width="2"/>
+            <g filter="url(#ing_ladashadow)">
+              <path d="M385 260 Q415 340 385 430" fill="none" stroke="#618d5b" stroke-width="6"/>
+              <circle cx="372" cy="285" r="18" fill="#1d1816" stroke="#6c5e53" stroke-width="2"/>
+              <circle cx="406" cy="305" r="18" fill="#b43b36"/>
+              <circle cx="375" cy="330" r="18" fill="#28211e" stroke="#6c5e53" stroke-width="2"/>
+              <circle cx="404" cy="355" r="18" fill="#1b1614"/>
+              <circle cx="376" cy="382" r="18" fill="#3a6b44"/>
+              <circle cx="398" cy="410" r="17" fill="#1d1816"/>
+              <circle cx="295" cy="445" r="20" fill="#1c1715"/><circle cx="342" cy="465" r="18" fill="#2a221f"/>
+              <circle cx="462" cy="452" r="21" fill="#1c1715"/><circle cx="508" cy="435" r="17" fill="#2a221f"/>
+            </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

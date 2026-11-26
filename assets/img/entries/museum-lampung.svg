@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="musbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#241918"/>
+      <stop offset="100%" stop-color="#120d0c"/>
+    </linearGradient>
+    <radialGradient id="musglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e5b45d" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e5b45d" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e5b45d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="musgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="musmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="mustapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="musshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#musbg)"/>
+  <rect width="800" height="600" fill="url(#mustapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#musglow)"/>
+  
+        <!-- Warm gallery architectural arches -->
+        <path d="M90 520 V220 Q90 85 250 85 Q400 85 400 220 V520 Z" fill="#1b1412" stroke="#d9a94f" stroke-opacity="0.3"/>
+        <path d="M400 520 V220 Q400 85 550 85 Q710 85 710 220 V520 Z" fill="#1b1412" stroke="#d9a94f" stroke-opacity="0.3"/>
+        <!-- Spotlight cones -->
+        <polygon points="400,55 245,450 555,450" fill="#fae6b4" opacity="0.09"/>
+        <g filter="url(#musshadow)">
+          <!-- Center glass vitrine pedestal with Siger crown -->
+          <rect x="300" y="340" width="200" height="165" rx="6" fill="#2e211b" stroke="url(#musgold)" stroke-width="2"/>
+          <rect x="315" y="180" width="170" height="160" rx="6" fill="rgba(245,239,226,0.08)" stroke="#fae6b4" stroke-opacity="0.45" stroke-width="1.5"/>
+          <path d="M335 288 L352 225 L376 266 L400 202 L424 266 L448 225 L465 288 Z" fill="url(#musgold)" stroke="#684312" stroke-width="2"/>
+          <rect x="335" y="286" width="130" height="18" rx="4" fill="url(#musgold)"/>
+          <!-- Left framed Tapis tapestry -->
+          <rect x="125" y="175" width="130" height="190" rx="6" fill="#3a2016" stroke="url(#musgold)" stroke-width="2.5"/>
+          <rect x="142" y="192" width="96" height="156" fill="url(#musmaroon)"/>
+          <path d="M142 265 L166 235 L190 265 L214 235 L238 265" fill="none" stroke="#fae6b4" stroke-width="2.5"/>
+          <!-- Right ceramic vessel & pedestal -->
+          <rect x="545" y="355" width="115" height="150" rx="6" fill="#2e211b" stroke="#d9a94f" stroke-opacity="0.6"/>
+          <path d="M578 355 Q562 295 586 258 H618 Q642 295 626 355 Z" fill="#a85c3e" stroke="#fae6b4" stroke-width="2"/>
+        </g>
+        <rect x="55" y="505" width="690" height="35" rx="4" fill="#17100e" stroke="#d9a94f" stroke-opacity="0.35"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

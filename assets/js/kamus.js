@@ -25,6 +25,7 @@
       return;
     }
     out.innerHTML = window.RJ.aksaraSvg ? RJ.aksaraSvg(text, { decorative: true }) : '';
+    if (window.RJ.animateSvgStrokes) RJ.animateSvgStrokes(out, { duration: 650, stagger: 45 });
   }
 
   function renderGlyphs() {
@@ -38,16 +39,59 @@
       { id: 'after', label: 'Anak huruf setelah', list: AK.marks.filter((m) => m.group === 'after') }
     ];
     const render = (group) => {
-      const list = group.id === 'all' ? AK.letters : group.list;
-      wrap.innerHTML = list.map((item) => group.id === 'all'
-        ? `<div class="glyph-card"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">${window.RJ.aksaraSvg ? RJ.aksaraSvg(item.key, { decorative: true }) : ''}</svg><div class="glyph-card__label">${esc(item.latin || item.name)}</div><div class="glyph-card__note">${esc(item.sound)}</div></div>`
-        : `<div class="glyph-card is-mark"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3"><circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="5"/></svg><div class="glyph-card__label">${esc(item.name)}</div><div class="glyph-card__note">Anak huruf ${esc(item.latin)}</div></div>`).join('');
+      const list = group.id === 'all' ? AK.letters : (group.list || []);
+      wrap.innerHTML = list.map((item, idx) => group.id === 'all'
+        ? `<button type="button" class="glyph-card anim-in" style="--stagger:${Math.min(idx * 22, 320)}ms" data-glyph-key="${esc(item.key)}" data-glyph-name="${esc(item.name)}" data-glyph-note="${esc(item.note)}">${window.RJ.aksaraSvg ? RJ.aksaraSvg(item.key, { decorative: true }) : ''}<div class="glyph-card__label">${esc(item.latin || item.name)}</div><div class="glyph-card__note">${esc(item.sound)}</div></button>`
+        : `<button type="button" class="glyph-card is-mark anim-in" style="--stagger:${Math.min(idx * 28, 280)}ms" data-mark-name="${esc(item.name)}" data-mark-note="${esc(item.note)}"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3"><circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="5"/></svg><div class="glyph-card__label">${esc(item.name)}</div><div class="glyph-card__note">Anak huruf ${esc(item.latin)}</div></button>`).join('');
     };
     render(groups[0]);
     $$('#glyph-tabs [data-glyph-group]').forEach((b) => b.addEventListener('click', () => {
       $$('#glyph-tabs [data-glyph-group]').forEach((x) => x.classList.toggle('chip--active', x === b));
-      render({ id: b.dataset.glyphGroup });
+      const found = groups.find((g) => g.id === b.dataset.glyphGroup) || groups[0];
+      RJ.sound.click();
+      render(found);
     }));
+    wrap.addEventListener('click', (e) => {
+      const card = e.target.closest('.glyph-card');
+      if (!card) return;
+      RJ.sound.tap();
+      if (card.dataset.glyphKey) {
+        const key = card.dataset.glyphKey;
+        const svg = window.RJ.aksaraSvg ? RJ.aksaraSvg(key, { decorative: true }) : '';
+        RJ.openModal({
+          label: `Huruf aksara ${card.dataset.glyphName}`,
+          className: 'modal--sheet',
+          content: `<div class="glyph-modal">
+            <span class="tag">Huruf Induk · Had Lampung</span>
+            <div class="glyph-modal__canvas">${svg}</div>
+            <h3>${esc(card.dataset.glyphName)}</h3>
+            <p>${esc(card.dataset.glyphNote || '')}</p>
+            <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+              <button type="button" class="btn btn--sm btn--outline" data-replay-stroke>${icon('rotate')} Ulangi goresan</button>
+              <button type="button" class="btn btn--sm btn--gold" data-try-glyph="${esc(key)}">Coba di konverter</button>
+            </div>
+          </div>`,
+          onMount(root) {
+            const box = root.querySelector('.glyph-modal__canvas');
+            if (box && window.RJ.animateSvgStrokes) RJ.animateSvgStrokes(box, { duration: 850, stagger: 120 });
+            root.querySelector('[data-replay-stroke]')?.addEventListener('click', () => {
+              if (box && window.RJ.animateSvgStrokes) RJ.animateSvgStrokes(box, { duration: 850, stagger: 120 });
+              RJ.sound.tap();
+            });
+            root.querySelector('[data-try-glyph]')?.addEventListener('click', () => {
+              const inp = $('#akk-input');
+              if (inp) {
+                inp.value = (inp.value ? inp.value + ' ' : '') + key;
+                renderAksara();
+              }
+              RJ.closeModal();
+            });
+          }
+        });
+      } else if (card.dataset.markName) {
+        RJ.toast(card.dataset.markNote || card.dataset.markName, { title: card.dataset.markName, icon: 'glyph', duration: 3400 });
+      }
+    });
   }
 
   function renderDict() {

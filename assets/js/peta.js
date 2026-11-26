@@ -61,7 +61,7 @@
       const leader = dist > 24 ? `<path class="region-leader" d="M${m.cx} ${m.cy}L${pos.x} ${pos.y}" data-leader="${m.id}"/>` : '';
       return `${leader}<text class="region-label" x="${pos.x}" y="${pos.y}" text-anchor="${pos.anchor}" data-label="${m.id}">${esc(m.name.replace(/^Kota /, ''))}</text>`;
     }).join('');
-    svg.innerHTML = `<g id="map-viewport"><g class="region-shapes">${paths}</g><g class="region-labels" aria-hidden="true">${labels}</g></g>`;
+    svg.innerHTML = `<g id="map-viewport"><g class="region-shapes">${paths}</g><circle class="map-beacon" id="map-beacon" cx="0" cy="0" r="18"/><g class="region-labels" aria-hidden="true">${labels}</g></g>`;
   }
 
   function applyTransform() {
@@ -83,6 +83,13 @@
     if (!svg) return;
     if (adatFilter === 'all') svg.removeAttribute('data-highlight');
     else svg.setAttribute('data-highlight', adatFilter);
+    const beacon = $('#map-beacon');
+    const activeMapReg = MAP.regencies.find((m) => m.id === activeId);
+    if (beacon && activeMapReg) {
+      beacon.setAttribute('cx', String(activeMapReg.cx));
+      beacon.setAttribute('cy', String(activeMapReg.cy));
+      beacon.classList.add('is-active');
+    }
     $$('.region-path', svg).forEach((p) => {
       const r = regionById[p.dataset.region] || {};
       const match = regionMatches(r);
@@ -117,12 +124,17 @@
     const entries = (r.entries || []).map((id) => entryById[id]).filter(Boolean);
     const dishes = (r.dishes || []).map((id) => dishById[id]).filter(Boolean);
     const accent = withColor(r);
+    const previews = [
+      ...entries.slice(0, 1).map((e) => ({ img: e.image, label: e.title, href: `ensiklopedia.html?entri=${encodeURIComponent(e.id)}` })),
+      ...dishes.slice(0, 1).map((d) => ({ img: d.image, label: d.name, href: `kuliner.html?hidangan=${encodeURIComponent(d.id)}` }))
+    ].filter((x) => x.img);
     box.innerHTML = `
       <div class="region-info__head" style="--region-accent:${accent}">
         <span class="region-info__tag">${esc(r.adatLabel)} · ${esc(r.capital)}</span>
         <h2>${esc(r.name)}</h2>
         <p>${icon('pin')} ${esc(r.capital)} · Lampung</p>
       </div>
+      ${previews.length ? `<div class="region-info__gallery">${previews.map((p) => `<a class="region-thumb" href="${p.href}"><img src="${esc(p.img)}" alt="${esc(p.label)}" loading="lazy"><span>${esc(p.label)}</span></a>`).join('')}</div>` : ''}
       <div class="region-info__body">
         <div class="region-info__title">${esc(r.title)}</div>
         <p class="region-info__summary">${esc(r.summary)}</p>
@@ -132,6 +144,9 @@
           ${dishes.slice(0, 3).map((d) => `<a href="kuliner.html?hidangan=${encodeURIComponent(d.id)}">${esc(d.name)} ${icon('bowl')}</a>`).join('')}
         </div>
       </div>`;
+    box.classList.remove('is-swap');
+    void box.offsetWidth;
+    box.classList.add('is-swap');
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(box);
   }
 
@@ -290,6 +305,16 @@
         if (first) renderInfo(first);
       }
     }, 120));
+
+    // route stops jump to map
+    $$('[data-jump-region]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.jumpRegion;
+        selectRegion(id, { url: true, scrollList: true });
+        RJ.sound.click();
+        $('#peta')?.scrollIntoView({ behavior: RJ.preferredReduced() ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
   }
 
   function zoomBy(delta) {

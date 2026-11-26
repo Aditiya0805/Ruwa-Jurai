@@ -1505,6 +1505,44 @@
     { title: 'Kurasi konten', body: 'Draf editorial Ruwa Jurai, 2026. Sebagian narasi disusun dari rujukan umum dan akan divalidasi oleh dewan kurator, tokoh adat, serta ahli bahasa sebelum rilis resmi.', url: '', license: 'Draf kurasi — jangan dianggap final.' }
   ];
 
+  const entryExt = {
+    tapis: 'webp',
+    siger: 'webp',
+    sekura: 'webp',
+    'sigeh-pengunten': 'webp',
+    pepadun: 'webp'
+  };
+  entries.forEach((e) => {
+    if (!e.image) e.image = `assets/img/entries/${e.id}.${entryExt[e.id] || 'svg'}`;
+  });
+  dishes.forEach((d) => {
+    if (!d.image) d.image = `assets/img/dishes/${d.id}.webp`;
+  });
+  ingredients.forEach((ing) => {
+    if (!ing.image) ing.image = `assets/img/ingredients/${ing.id}.svg`;
+  });
+  const agendaImages = {
+    sekura: 'assets/img/entries/sekura.webp',
+    'panen-kopi': 'assets/img/dishes/kopi-robusta.webp',
+    durian: 'assets/img/dishes/lempok-durian.webp',
+    begawi: 'assets/img/entries/begawi.svg',
+    nyambai: 'assets/img/entries/nyambai.svg',
+    bedana: 'assets/img/entries/bedana.svg',
+    museum: 'assets/img/entries/museum-lampung.svg'
+  };
+  agenda.forEach((a) => {
+    if (!a.image) a.image = agendaImages[a.id] || 'assets/img/entries/tapis.webp';
+  });
+  highlights.forEach((h) => {
+    if (h.entryId) {
+      const e = entries.find((x) => x.id === h.entryId);
+      if (e) h.image = e.image;
+    } else if (h.dishId) {
+      const d = dishes.find((x) => x.id === h.dishId);
+      if (d) h.image = d.image;
+    }
+  });
+
   window.RJ_DATA = window.RJ_DATA || {};
   Object.assign(window.RJ_DATA, {
     categories, entries, timeline, dishes, ingredients, regions, dictionary,

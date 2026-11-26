@@ -61,6 +61,11 @@
         </div>
       </div>
       <div class="page-hero__art" data-ornament="glyph" aria-hidden="true"></div>
+      <div class="page-hero__mosaic" aria-hidden="true">
+        <figure class="hero-polaroid hero-polaroid--a"><img src="assets/img/entries/aksara-lampung.svg" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--b"><img src="assets/img/entries/sastra-lisan.svg" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--c"><img src="assets/img/entries/dialek-a-o.svg" alt="" loading="eager"></figure>
+      </div>
       <div class="page-hero__aside">
         <span class="aksara-wrap" data-aksara="rumah" data-aksara-decor aria-hidden="true" style="width:120px;color:var(--maroon)"></span>
         <span>rumah · 42 kata</span>
@@ -79,8 +84,8 @@
                 <div class="converter__label"><span><span data-icon="book"></span> Aksara Latin</span></div>
                 <textarea id="akk-input" class="textarea" rows="4" placeholder="Contoh: saibatin, seruit, talo balak, siger" aria-label="Tulis kata dalam aksara Latin"></textarea>
                 <div class="converter__actions">
-                  <button class="icon-btn" type="button" id="akk-copy" data-tip="Salin teks" aria-label="Salin teks terjemahan">${icon('copy')}</button>
-                  <button class="icon-btn" type="button" id="akk-clear" data-tip="Bersihkan" aria-label="Bersihkan teks">${icon('close')}</button>
+                  <button class="icon-btn" type="button" id="akk-copy" data-tip="Salin teks" aria-label="Salin teks terjemahan"><span data-icon="copy"></span></button>
+                  <button class="icon-btn" type="button" id="akk-clear" data-tip="Bersihkan" aria-label="Bersihkan teks"><span data-icon="close"></span></button>
                 </div>
                 <div class="converter__examples">
                   <button type="button" data-akk="sai">sai</button>
@@ -104,6 +109,7 @@
           </div>
           <div class="aksara-feature__showcase">
             <div class="aksara-wrap" data-aksara="ruwa jurai" data-aksara-decor aria-hidden="true"></div>
+            <img class="aksara-feature__card" src="assets/img/entries/aksara-lampung.svg" alt="Ilustrasi manuskrip Had Lampung" loading="lazy">
             <small>rumah · aksara · ruwa jurai</small>
           </div>
         </div>
@@ -120,7 +126,7 @@
           </div>
         </div>
         <div class="glyph-board">
-          <div class="glyph-tabs" role="tablist" aria-label="Kelompok huruf">
+          <div class="glyph-tabs" id="glyph-tabs" role="tablist" aria-label="Kelompok huruf">
             <button class="chip chip--active" type="button" data-glyph-group="all">Semua</button>
             <button class="chip" type="button" data-glyph-group="above">Anak huruf atas</button>
             <button class="chip" type="button" data-glyph-group="below">Anak huruf bawah</button>

@@ -58,8 +58,9 @@
     const grid = $('#agenda-grid');
     if (!grid) return;
     const { events } = monthEvents(activeMonth);
-    grid.innerHTML = events.map((a) => `
-      <article class="agenda-card" style="--event-color:${a.color}">
+    grid.innerHTML = events.map((a, idx) => `
+      <article class="agenda-card anim-in" style="--event-color:${a.color};--stagger:${Math.min(idx * 55, 320)}ms">
+        ${a.image ? `<div class="agenda-card__media"><img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy"><span class="agenda-card__badge">${esc(a.type)}</span></div>` : ''}
         <div class="agenda-card__body">
           <div class="agenda-date">
             <b>2026</b>
@@ -83,13 +84,19 @@
         </div>
       </article>`).join('');
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(grid);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(grid);
   }
 
   function bind() {
-    $$('[data-ag-add]').forEach((b) => b.addEventListener('click', () => {
-      const a = (D.agenda || []).find((x) => x.id === b.dataset.agAdd);
-      if (a) RJ.downloadICS({ title: a.title, location: a.location, desc: a.desc }, `ruwa-jurai-${a.id}.ics`);
-    }));
+    const grid = $('#agenda-grid');
+    if (grid) {
+      grid.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-ag-add]');
+        if (!b) return;
+        const a = (D.agenda || []).find((x) => x.id === b.dataset.agAdd);
+        if (a) RJ.downloadICS({ title: a.title, location: a.location, desc: a.desc }, `ruwa-jurai-${a.id}.ics`);
+      });
+    }
     const form = $('#agenda-form');
     if (form) form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -100,15 +107,13 @@
   }
 
   function init() {
-    renderMonths();
-    renderAgenda();
     const deep = RJ.getQuery('month');
-    if (deep) {
+    if (deep !== null) {
       const n = Number(deep);
       if (Number.isInteger(n) && n >= 0 && n < 12) activeMonth = n;
     }
-    const initialCell = document.querySelector('#month-track [data-month]');
-    if (initialCell) initialCell.classList.add('is-active');
+    renderMonths();
+    renderAgenda();
     bind();
     if (window.RJ.renderAksara) RJ.renderAksara(document.body);
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(document.body);

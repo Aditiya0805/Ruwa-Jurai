@@ -59,6 +59,11 @@
         </div>
       </div>
       <div class="page-hero__art" data-ornament="landmark" aria-hidden="true"></div>
+      <div class="page-hero__mosaic" aria-hidden="true">
+        <figure class="hero-polaroid hero-polaroid--a"><img src="assets/img/entries/sigeh-pengunten.webp" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--b"><img src="assets/img/entries/lamban-pesagi.svg" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--c"><img src="assets/img/entries/museum-lampung.svg" alt="" loading="eager"></figure>
+      </div>
       <div class="page-hero__aside">
         <span class="aksara-wrap" data-aksara="ruwa" data-aksara-decor aria-hidden="true" style="width:130px;color:var(--forest)"></span>
         <span>tentang · ruwa jurai</span>
@@ -95,13 +100,54 @@
         <div class="reveal" data-reveal="right">
           <p class="eyebrow">Tentang Sai</p>
           <h2 class="section-lede" style="margin-top:12px">Nama kerja, <em>yang ingin tahu.</em></h2>
-          <div class="anatomy__list">
-            <div class="anatomy__item"><span class="anatomy__no">01</span><div><h4>Gajah Sumatra <span>muda</span></h4><p>Fauna identitas Lampung yang dekat dengan Way Kambas. Nama “Sai” adalah kerja, bukan klaim.</p></div></div>
-            <div class="anatomy__item"><span class="anatomy__no">02</span><div><h4>Siger <span>kepala</span></h4><p>Mahkota kehormatan. Pada Sai, ia kecil dan dipakai untuk belajar, bukan untuk dipamerkan.</p></div></div>
-            <div class="anatomy__item"><span class="anatomy__no">03</span><div><h4>Tapis <span>badan</span></h4><p>Bahan penenun yang menyimpan doa dan motif. Pada Sai, ia menjadi syal kecil.</p></div></div>
-            <div class="anatomy__item"><span class="anatomy__no">04</span><div><h4>Tangan <span>terbuka</span></h4><p>Bahasa keramahan: silakan masuk, silakan bertanya, silakan berbeda pendapat.</p></div></div>
-            <div class="anatomy__item"><span class="anatomy__no">05</span><div><h4>Sai Bumi <span>Ruwa Jurai</span></h4><p>Gabungan atribut kehidupan: gajah, siger, tapis, dan tangan terbuka menemani 15 kabupaten/kota.</p></div></div>
+          <div class="anatomy__list" id="anatomy-list">
+            <button type="button" class="anatomy__item is-active" data-anatomy="gajah"><span class="anatomy__no">01</span><div><h4>Gajah Sumatra <span>muda</span></h4><p>Fauna identitas Lampung yang dekat dengan Way Kambas. Nama “Sai” adalah kerja, bukan klaim.</p></div></button>
+            <button type="button" class="anatomy__item" data-anatomy="siger"><span class="anatomy__no">02</span><div><h4>Siger <span>kepala</span></h4><p>Mahkota kehormatan. Pada Sai, ia kecil dan dipakai untuk belajar, bukan untuk dipamerkan.</p></div></button>
+            <button type="button" class="anatomy__item" data-anatomy="tapis"><span class="anatomy__no">03</span><div><h4>Tapis <span>badan</span></h4><p>Bahan penenun yang menyimpan doa dan motif. Pada Sai, ia menjadi syal kecil.</p></div></button>
+            <button type="button" class="anatomy__item" data-anatomy="tangan"><span class="anatomy__no">04</span><div><h4>Tangan <span>terbuka</span></h4><p>Bahasa keramahan: silakan masuk, silakan bertanya, silakan berbeda pendapat.</p></div></button>
+            <button type="button" class="anatomy__item" data-anatomy="lengkap"><span class="anatomy__no">05</span><div><h4>Sai Bumi <span>Ruwa Jurai</span></h4><p>Gabungan atribut kehidupan: gajah, siger, tapis, dan tangan terbuka menemani 15 kabupaten/kota.</p></div></button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section gallery-section" id="galeri">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow">Arsip visual</p>
+            <h2 class="section-lede" style="margin-top:12px">Wajah Lampung <em>dalam bingkai.</em></h2>
+          </div>
+          <div class="section-head__side">
+            <p>Sekilas rangkuman gambar budaya dan dapur Lampung yang kami kurasi di seluruh halaman portal ini.</p>
+            <a class="link-arrow" href="ensiklopedia.html">Lihat semua entri <span data-icon="right"></span></a>
+          </div>
+        </div>
+        <div class="visual-gallery">
+          <a class="gallery-tile reveal" href="ensiklopedia.html?entri=tapis" style="--delay:0ms">
+            <img src="assets/img/entries/tapis.webp" alt="Kain Tapis Lampung bersulam benang emas" loading="lazy">
+            <div class="gallery-tile__cap"><span>Busana</span><b>Kain Tapis</b></div>
+          </a>
+          <a class="gallery-tile reveal" href="ensiklopedia.html?entri=siger" style="--delay:60ms">
+            <img src="assets/img/entries/siger.webp" alt="Mahkota Siger Lampung emas" loading="lazy">
+            <div class="gallery-tile__cap"><span>Simbol</span><b>Mahkota Siger</b></div>
+          </a>
+          <a class="gallery-tile reveal" href="ensiklopedia.html?entri=sekura" style="--delay:120ms">
+            <img src="assets/img/entries/sekura.webp" alt="Festival topeng Sekura Cakak Buah" loading="lazy">
+            <div class="gallery-tile__cap"><span>Festival</span><b>Sekura Cakak Buah</b></div>
+          </a>
+          <a class="gallery-tile reveal" href="ensiklopedia.html?entri=sigeh-pengunten" style="--delay:180ms">
+            <img src="assets/img/entries/sigeh-pengunten.webp" alt="Tari Sigeh Pengunten Lampung" loading="lazy">
+            <div class="gallery-tile__cap"><span>Seni Tari</span><b>Sigeh Pengunten</b></div>
+          </a>
+          <a class="gallery-tile reveal" href="ensiklopedia.html?entri=pepadun" style="--delay:240ms">
+            <img src="assets/img/entries/pepadun.webp" alt="Singgasana adat Pepadun Lampung" loading="lazy">
+            <div class="gallery-tile__cap"><span>Adat</span><b>Singgasana Pepadun</b></div>
+          </a>
+          <a class="gallery-tile reveal" href="kuliner.html?hidangan=seruit" style="--delay:300ms">
+            <img src="assets/img/dishes/seruit.webp" alt="Hidangan Seruit Lampung" loading="lazy">
+            <div class="gallery-tile__cap"><span>Kuliner</span><b>Seruit Lampung</b></div>
+          </a>
         </div>
       </div>
     </section>

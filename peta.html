@@ -61,6 +61,11 @@
         </div>
       </div>
       <div class="page-hero__art" data-ornament="compass" aria-hidden="true"></div>
+      <div class="page-hero__mosaic" aria-hidden="true">
+        <figure class="hero-polaroid hero-polaroid--a"><img src="assets/img/scenes/route-pesisir.svg" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--b"><img src="assets/img/entries/pepadun.webp" alt="" loading="eager"></figure>
+        <figure class="hero-polaroid hero-polaroid--c"><img src="assets/img/entries/pugung-raharjo.svg" alt="" loading="eager"></figure>
+      </div>
       <div class="page-hero__aside">
         <span class="aksara-wrap" data-aksara="lampung" data-aksara-decor aria-hidden="true" style="width:130px;color:var(--forest)"></span>
         <span>peta · 15 wilayah</span>
@@ -160,38 +165,47 @@
           </div>
         </div>
         <div class="route-grid">
-          <article class="route-card">
-            <div class="route-card__no">01</div>
-            <h3>Jalur pesisir barat</h3>
-            <p>Ombak, kopi, dan pasar ikan. Cocok untuk perjalanan lambat yang tidak mengejar banyak titik.</p>
-            <ol>
-              <li>Krui — pasar &amp; pantai</li>
-              <li>Pesisir Barat — kebun kopi</li>
-              <li>Liwa — gerbang dataran tinggi</li>
-              <li>Danau Ranau — jeda panjang</li>
-            </ol>
+          <article class="route-card reveal" style="--delay:0ms">
+            <div class="route-card__media"><img src="assets/img/scenes/route-pesisir.svg" alt="Lanskap jalur pesisir barat Lampung" loading="lazy"></div>
+            <div class="route-card__body">
+              <div class="route-card__no">01</div>
+              <h3>Jalur pesisir barat</h3>
+              <p>Ombak, kopi, dan pasar ikan. Cocok untuk perjalanan lambat yang tidak mengejar banyak titik.</p>
+              <ol>
+                <li><button type="button" class="route-stop" data-jump-region="pesisir-barat">Krui — pasar &amp; pantai</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="pesisir-barat">Pesisir Barat — kebun kopi</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="lampung-barat">Liwa — gerbang dataran tinggi</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="tanggamus">Teluk Semaka — jalur pesisir</button></li>
+              </ol>
+            </div>
           </article>
-          <article class="route-card">
-            <div class="route-card__no">02</div>
-            <h3>Jalur pedalaman</h3>
-            <p>Dari pusat tenun ke rumah adat, dengan catatan bahwa kunjungan harus melalui izin dan tata krama setempat.</p>
-            <ol>
-              <li>Metro — titik transit</li>
-              <li>Gunung Sugih — pasar pagi</li>
-              <li>Lampung Tengah — tapis &amp; kebun</li>
-              <li>Way Kanan — lanskap sungai</li>
-            </ol>
+          <article class="route-card reveal" style="--delay:80ms">
+            <div class="route-card__media"><img src="assets/img/scenes/route-pedalaman.svg" alt="Lanskap jalur pedalaman Lampung" loading="lazy"></div>
+            <div class="route-card__body">
+              <div class="route-card__no">02</div>
+              <h3>Jalur pedalaman</h3>
+              <p>Dari pusat tenun ke rumah adat, dengan catatan bahwa kunjungan harus melalui izin dan tata krama setempat.</p>
+              <ol>
+                <li><button type="button" class="route-stop" data-jump-region="metro">Metro — titik transit</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="lampung-tengah">Gunung Sugih — pasar pagi</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="tulang-bawang-barat">Panaragan — tapis &amp; kebun</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="way-kanan">Way Kanan — lanskap sungai</button></li>
+              </ol>
+            </div>
           </article>
-          <article class="route-card">
-            <div class="route-card__no">03</div>
-            <h3>Jalur sejarah</h3>
-            <p>Menelusuri jejak yang lebih tua dari kota: situs megalitik, museum, dan pesisir timur.</p>
-            <ol>
-              <li>Bandar Lampung — museum</li>
-              <li>Pugung Raharjo — situs</li>
-              <li>Sukadana — Melinting</li>
-              <li>Lampung Selatan — pantai</li>
-            </ol>
+          <article class="route-card reveal" style="--delay:160ms">
+            <div class="route-card__media"><img src="assets/img/scenes/route-sejarah.svg" alt="Lanskap jalur sejarah Lampung" loading="lazy"></div>
+            <div class="route-card__body">
+              <div class="route-card__no">03</div>
+              <h3>Jalur sejarah</h3>
+              <p>Menelusuri jejak yang lebih tua dari kota: situs megalitik, museum, dan pesisir timur.</p>
+              <ol>
+                <li><button type="button" class="route-stop" data-jump-region="bandar-lampung">Bandar Lampung — museum</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="lampung-timur">Pugung Raharjo — situs</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="lampung-timur">Sukadana — Melinting</button></li>
+                <li><button type="button" class="route-stop" data-jump-region="lampung-selatan">Lampung Selatan — pantai</button></li>
+              </ol>
+            </div>
           </article>
         </div>
         <div class="agenda-note" style="margin-top:20px">

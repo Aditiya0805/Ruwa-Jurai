@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="lambg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d352a"/>
+      <stop offset="100%" stop-color="#101f18"/>
+    </linearGradient>
+    <radialGradient id="lamglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e5b45d" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e5b45d" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e5b45d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lamgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="lammaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="lamtapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="lamshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#lambg)"/>
+  <rect width="800" height="600" fill="url(#lamtapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#lamglow)"/>
+  
+        <circle cx="585" cy="175" r="85" fill="url(#lamgold)" opacity="0.65"/>
+        <path d="M0 445 Q220 390 460 430 T800 415 V600 H0 Z" fill="#10251c"/>
+        <g filter="url(#lamshadow)">
+          <!-- Timber stilts (Tiang panggung) -->
+          <g fill="#3a2114" stroke="#6d4628" stroke-width="1.5">
+            <rect x="175" y="385" width="22" height="130"/>
+            <rect x="275" y="385" width="22" height="130"/>
+            <rect x="400" y="385" width="22" height="130"/>
+            <rect x="525" y="385" width="22" height="130"/>
+            <rect x="615" y="385" width="22" height="130"/>
+          </g>
+          <!-- Main raised timber house body -->
+          <rect x="155" y="275" width="490" height="115" rx="4" fill="#5e3622" stroke="#d9a94f" stroke-width="2"/>
+          <!-- Carved wooden wall panels & veranda windows -->
+          <rect x="175" y="295" width="95" height="65" fill="#2c170e" stroke="#d9a94f" stroke-width="1.8"/>
+          <rect x="355" y="288" width="90" height="82" fill="#f0c97e" opacity="0.82" stroke="#3a2114" stroke-width="2"/>
+          <rect x="530" y="295" width="95" height="65" fill="#2c170e" stroke="#d9a94f" stroke-width="1.8"/>
+          <path d="M185 375 H615" stroke="#d9a94f" stroke-width="3"/>
+          <!-- Multi-tiered Lampung pitched roof -->
+          <path d="M110 280 L400 135 L690 280 Z" fill="#2c1610" stroke="url(#lamgold)" stroke-width="3"/>
+          <path d="M225 220 L400 105 L575 220 Z" fill="#48121d" stroke="url(#lamgold)" stroke-width="2.5"/>
+          <path d="M398 105 V72 M386 85 L400 70 L414 85" fill="none" stroke="url(#lamgold)" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Entrance stairs -->
+          <path d="M365 390 L330 515 M435 390 L470 515" stroke="#8c5a37" stroke-width="7"/>
+          <path d="M358 415 H442 M350 442 H450 M342 469 H458 M335 496 H465" stroke="#d9a94f" stroke-width="4"/>
+        </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

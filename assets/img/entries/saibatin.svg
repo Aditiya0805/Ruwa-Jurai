@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="saibg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e2620"/>
+      <stop offset="100%" stop-color="#173e37"/>
+    </linearGradient>
+    <radialGradient id="saiglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e9b664" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e9b664" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e9b664" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="saigold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="saimaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="saitapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="saishadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#saibg)"/>
+  <rect width="800" height="600" fill="url(#saitapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#saiglow)"/>
+  
+        <circle cx="540" cy="210" r="115" fill="url(#saigold)" opacity="0.88"/>
+        <circle cx="540" cy="210" r="158" fill="none" stroke="#f6dda6" stroke-width="1" stroke-dasharray="4 8" opacity="0.45"/>
+        <path d="M0 320 Q140 245 290 295 T580 280 T800 260 V380 H0 Z" fill="#11312a" opacity="0.85"/>
+        <path d="M0 345 Q190 295 360 335 T800 320 V400 H0 Z" fill="#0d2520"/>
+        <rect x="0" y="365" width="800" height="235" fill="#0b2022"/>
+        <g opacity="0.45" fill="#fae6b4">
+          <ellipse cx="540" cy="395" rx="95" ry="6"/>
+          <ellipse cx="540" cy="422" rx="68" ry="4"/>
+          <ellipse cx="540" cy="448" rx="45" ry="3"/>
+          <ellipse cx="540" cy="472" rx="28" ry="2.5"/>
+        </g>
+        <g stroke="#4f887b" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.55">
+          <path d="M40 420 q35-14 70 0 t70 0 70 0"/>
+          <path d="M440 500 q40-16 80 0 t80 0 80 0"/>
+          <path d="M120 530 q32-12 64 0 t64 0 64 0"/>
+        </g>
+        <!-- Traditional outrigger boat -->
+        <g filter="url(#saishadow)">
+          <path d="M235 422 C295 452 440 452 505 408 L480 442 C415 462 300 462 248 440 Z" fill="#3a2016" stroke="#d9a94f" stroke-width="2.2"/>
+          <path d="M250 455 Q375 480 510 450" fill="none" stroke="#9b7340" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M310 438 L302 462 M435 436 L445 458" stroke="#9b7340" stroke-width="3"/>
+          <path d="M368 424 V206" stroke="#e9c77a" stroke-width="4" stroke-linecap="round"/>
+          <path d="M372 214 Q478 292 482 390 L372 390 Z" fill="url(#saimaroon)" stroke="#d9a94f" stroke-width="2"/>
+          <path d="M372 346 H480 L482 390 H372 Z" fill="url(#saigold)" opacity="0.85"/>
+          <path d="M395 368 L412 350 L429 368 L446 350 L463 368" fill="none" stroke="#48121d" stroke-width="2.5"/>
+          <path d="M366 232 Q290 296 286 384 L366 384 Z" fill="#f2dfc0" opacity="0.92" stroke="#d9a94f" stroke-width="1.8"/>
+        </g>
+        <!-- Palm silhouettes -->
+        <g fill="#081612">
+          <path d="M85 600 Q95 430 135 280 L147 283 Q115 430 112 600 Z"/>
+          <path d="M138 280 Q85 245 35 270 Q92 272 138 280 Z"/>
+          <path d="M138 280 Q110 210 155 170 Q148 228 138 280 Z"/>
+          <path d="M138 280 Q198 225 242 260 Q186 258 138 280 Z"/>
+          <path d="M138 280 Q190 295 215 348 Q168 312 138 280 Z"/>
+        </g>
+        <!-- Pesisir wave border -->
+        <path d="M0 572 Q100 546 200 572 T400 572 T600 572 T800 572 V600 H0 Z" fill="#071512"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

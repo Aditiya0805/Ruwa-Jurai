@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="ing_kakaobg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#382018"/>
+      <stop offset="100%" stop-color="#1a0e0b"/>
+    </linearGradient>
+    <radialGradient id="ing_kakaoglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e5b45d" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e5b45d" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e5b45d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ing_kakaogold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="ing_kakaomaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="ing_kakaotapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="ing_kakaoshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#ing_kakaobg)"/>
+  <rect width="800" height="600" fill="url(#ing_kakaotapis)" opacity="0.06"/>
+  <rect width="800" height="600" fill="url(#ing_kakaoglow)"/>
+  
+            <g filter="url(#ing_kakaoshadow)">
+              <ellipse cx="320" cy="300" rx="115" ry="175" transform="rotate(-18 320 300)" fill="#c2832e" stroke="#754913" stroke-width="3"/>
+              <path d="M275 155 Q335 300 355 445 M325 142 Q370 295 375 452" fill="none" stroke="#855215" stroke-width="3"/>
+              <!-- Opened cacao cross-section -->
+              <g transform="translate(495 335) rotate(16)">
+                <ellipse cx="0" cy="0" rx="95" ry="145" fill="#99601e" stroke="#f0c878" stroke-width="3"/>
+                <ellipse cx="0" cy="0" rx="68" ry="118" fill="#f7eedb"/>
+                <g fill="#5b3421" stroke="#3c2012" stroke-width="1.5">
+                  <ellipse cx="-22" cy="-58" rx="18" ry="12"/><ellipse cx="22" cy="-52" rx="18" ry="12"/>
+                  <ellipse cx="-24" cy="-16" rx="19" ry="13"/><ellipse cx="24" cy="-12" rx="19" ry="13"/>
+                  <ellipse cx="-22" cy="28" rx="19" ry="13"/><ellipse cx="22" cy="32" rx="19" ry="13"/>
+                  <ellipse cx="0" cy="70" rx="18" ry="12"/>
+                </g>
+              </g>
+            </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

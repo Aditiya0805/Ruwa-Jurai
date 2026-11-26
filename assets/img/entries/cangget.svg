@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="cngbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#28141a"/>
+      <stop offset="100%" stop-color="#140b0e"/>
+    </linearGradient>
+    <radialGradient id="cngglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#e5b45d" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#e5b45d" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e5b45d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cnggold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="cngmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="cngtapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="cngshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#cngbg)"/>
+  <rect width="800" height="600" fill="url(#cngtapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#cngglow)"/>
+  
+        <path d="M60 470 H740 V540 H60 Z" fill="#3a2016" stroke="#d9a94f" stroke-opacity="0.4"/>
+        <!-- Hanging traditional canopy -->
+        <path d="M90 60 H710 L680 120 Q590 95 500 120 Q400 95 300 120 Q210 95 120 120 Z" fill="url(#cnggold)" opacity="0.9"/>
+        <g filter="url(#cngshadow)">
+          <!-- Center main Cangget dancer -->
+          <g transform="translate(400 320)">
+            <circle cx="0" cy="-115" r="22" fill="#e6be98"/>
+            <path d="M-36 -125 L-22 -162 L-8 -135 L0 -174 L8 -135 L22 -162 L36 -125 Z" fill="url(#cnggold)" stroke="#5d3b14" stroke-width="1.5"/>
+            <path d="M-26 -85 Q0 -95 26 -85 L34 10 H-34 Z" fill="#f7f0e1" stroke="#d9a94f" stroke-width="2"/>
+            <path d="M-34 10 H34 L52 145 H-52 Z" fill="url(#cngmaroon)" stroke="#d9a94f" stroke-width="2.5"/>
+            <path d="M-38 45 L-18 22 L0 45 L18 22 L38 45 M-44 85 L-22 62 L0 85 L22 62 L44 85" fill="none" stroke="#fae6b4" stroke-width="2.2"/>
+            <path d="M-28 -72 C-72 -62 -86 -20 -98 -8" fill="none" stroke="#e6be98" stroke-width="9" stroke-linecap="round"/>
+            <path d="M28 -72 C72 -62 86 -20 98 -8" fill="none" stroke="#e6be98" stroke-width="9" stroke-linecap="round"/>
+          </g>
+          <!-- Side dancers (smaller / symmetrical) -->
+          <g transform="translate(205 340) scale(0.82)" opacity="0.88">
+            <circle cx="0" cy="-115" r="22" fill="#e6be98"/>
+            <path d="M-36 -125 L-20 -160 L0 -170 L20 -160 L36 -125 Z" fill="url(#cnggold)"/>
+            <path d="M-26 -85 H26 L34 10 H-34 Z" fill="#f7f0e1"/>
+            <path d="M-34 10 H34 L52 145 H-52 Z" fill="url(#cngmaroon)" stroke="#d9a94f" stroke-width="2"/>
+          </g>
+          <g transform="translate(595 340) scale(0.82)" opacity="0.88">
+            <circle cx="0" cy="-115" r="22" fill="#e6be98"/>
+            <path d="M-36 -125 L-20 -160 L0 -170 L20 -160 L36 -125 Z" fill="url(#cnggold)"/>
+            <path d="M-26 -85 H26 L34 10 H-34 Z" fill="#f7f0e1"/>
+            <path d="M-34 10 H34 L52 145 H-52 Z" fill="url(#cngmaroon)" stroke="#d9a94f" stroke-width="2"/>
+          </g>
+        </g>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>

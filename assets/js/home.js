@@ -37,46 +37,79 @@
     const layers = $$('[data-depth]', hero);
     const pupils = $$('.sai-pupils', hero);
     let raf = null;
-    let tx = 0;
-    let ty = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let curX = 0;
+    let curY = 0;
+
+    function tickParallax() {
+      curX += (targetX - curX) * 0.11;
+      curY += (targetY - curY) * 0.11;
+      layers.forEach((layer) => {
+        const depth = Number(layer.dataset.depth) || 0;
+        layer.style.transform = `translate3d(${(-curX * depth * 260).toFixed(2)}px, ${(-curY * depth * 170).toFixed(2)}px, 0)`;
+      });
+      pupils.forEach((p) => {
+        p.style.transform = `translate(${(curX * 10).toFixed(2)}px, ${(curY * 7.5).toFixed(2)}px)`;
+      });
+      if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
+        raf = requestAnimationFrame(tickParallax);
+      } else {
+        raf = null;
+      }
+    }
 
     hero.addEventListener('pointermove', (e) => {
       if (window.matchMedia('(pointer: coarse)').matches || RJ.preferredReduced()) return;
       const rect = hero.getBoundingClientRect();
-      tx = (e.clientX - rect.width / 2) / rect.width;
-      ty = (e.clientY - rect.height / 2) / rect.height;
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = null;
-        layers.forEach((layer) => {
-          const depth = Number(layer.dataset.depth) || 0;
-          layer.style.transform = `translate3d(${(-tx * depth * 240).toFixed(1)}px, ${(-ty * depth * 160).toFixed(1)}px, 0)`;
-        });
-        pupils.forEach((p) => {
-          p.style.transform = `translate(${(tx * 9).toFixed(1)}px, ${(ty * 7).toFixed(1)}px)`;
-        });
-      });
+      targetX = (e.clientX - rect.width / 2) / rect.width;
+      targetY = (e.clientY - rect.height / 2) / rect.height;
+      if (!raf) raf = requestAnimationFrame(tickParallax);
     }, { passive: true });
     hero.addEventListener('pointerleave', () => {
-      layers.forEach((l) => { l.style.transform = ''; });
-      pupils.forEach((p) => { p.style.transform = ''; });
+      targetX = 0;
+      targetY = 0;
+      if (!raf && !RJ.preferredReduced()) raf = requestAnimationFrame(tickParallax);
     });
+
+    const bubble = hero.querySelector('.speech-bubble');
+    function updateBubble(text, caption = 'Sai menyapa') {
+      if (!bubble) return;
+      bubble.innerHTML = `${esc(text)}<small>${esc(caption)}</small>`;
+      bubble.classList.remove('is-pop');
+      void bubble.offsetWidth;
+      bubble.classList.add('is-pop');
+    }
 
     // mascot interactions
     const mascot = hero.querySelector('.sai-svg');
     if (mascot) {
       mascot.style.cursor = 'pointer';
+      mascot.setAttribute('title', 'Klik Sai untuk sapaan & fakta budaya');
       mascot.addEventListener('click', () => {
         const phrase = saiPhrases[Math.floor(Math.random() * saiPhrases.length)];
+        updateBubble(phrase, 'Fakta Sai');
         RJ.toast(phrase, { title: 'Kata Sai', icon: 'spark', duration: 5200 });
+        RJ.sound.tap();
         const trunk = mascot.querySelector('.sai-trunk');
-        if (trunk && !RJ.preferredReduced()) {
-          trunk.animate([
-            { transform: 'rotate(0deg)' },
-            { transform: 'rotate(-4deg)' },
-            { transform: 'rotate(3deg)' },
-            { transform: 'rotate(0deg)' }
-          ], { duration: 700, easing: 'ease-in-out', transformOrigin: '350px 420px' });
+        const ears = $$('.sai-ear', mascot);
+        if (!RJ.preferredReduced()) {
+          if (trunk) {
+            trunk.animate([
+              { transform: 'rotate(0deg)' },
+              { transform: 'rotate(-6deg) scale(1.03)' },
+              { transform: 'rotate(4deg)' },
+              { transform: 'rotate(0deg)' }
+            ], { duration: 750, easing: 'ease-in-out', transformOrigin: '350px 420px' });
+          }
+          ears.forEach((ear, i) => {
+            ear.animate([
+              { transform: 'rotate(0deg)' },
+              { transform: i === 0 ? 'rotate(-8deg)' : 'rotate(8deg)' },
+              { transform: 'rotate(0deg)' }
+            ], { duration: 600, easing: 'ease-out', transformOrigin: i === 0 ? '260px 354px' : '440px 354px' });
+          });
+          if (RJ.burstSparks) RJ.burstSparks(mascot);
         }
       });
     }
@@ -88,15 +121,17 @@
           if (arm && !RJ.preferredReduced()) {
             arm.animate([
               { transform: 'rotate(0deg)' },
-              { transform: 'rotate(-16deg)' },
-              { transform: 'rotate(8deg)' },
-              { transform: 'rotate(-10deg)' },
+              { transform: 'rotate(-18deg)' },
+              { transform: 'rotate(9deg)' },
+              { transform: 'rotate(-12deg)' },
               { transform: 'rotate(0deg)' }
-            ], { duration: 900, easing: 'ease-in-out', transformOrigin: '240px 505px' });
+            ], { duration: 920, easing: 'ease-in-out', transformOrigin: '240px 505px' });
           }
+          updateBubble('Tabik pun! Senang sekali kamu mampir hari ini.', 'Sai melambai');
           RJ.toast('Tabik pun! Senang kamu mampir.', { title: 'Sai melambai', icon: 'hands', duration: 2600 });
         } else {
           const story = saiStories[Math.floor(Math.random() * saiStories.length)];
+          updateBubble(story, 'Cerita Sai');
           RJ.toast(story, { title: 'Cerita dari Sai', icon: 'book', duration: 6200 });
         }
       });
@@ -107,7 +142,7 @@
     const wrap = $('[data-sai-attrs]');
     if (!wrap || !D.mascotAttributes) return;
     wrap.innerHTML = D.mascotAttributes.map((a, i) => `
-      <div class="sai-attr ${i === 0 ? 'is-open' : ''}">
+      <div class="sai-attr ${i === 0 ? 'is-open' : ''}" data-attr-id="${esc(a.id)}">
         <button class="sai-attr__btn" type="button" aria-expanded="${i === 0}" aria-controls="sai-attr-${a.id}">
           <span class="sai-attr__no">${a.no}</span>
           <span class="sai-attr__name">${esc(a.title)}</span>
@@ -116,9 +151,12 @@
         </button>
         <div class="sai-attr__body" id="sai-attr-${a.id}"><div><p>${esc(a.text)}</p></div></div>
       </div>`).join('');
+    const featureSvg = $('.sai-feature .sai-svg');
+    const partMap = { gajah: '.sai-head', siger: '.acc-siger', tapis: '.acc-tapis', tangan: '.sai-arm--left', lengkap: '.sai-bob' };
     wrap.querySelectorAll('.sai-attr__btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.sai-attr');
+        const id = item.dataset.attrId;
         const open = btn.getAttribute('aria-expanded') === 'true';
         wrap.querySelectorAll('.sai-attr').forEach((x) => {
           x.classList.remove('is-open');
@@ -129,6 +167,11 @@
           item.classList.add('is-open');
           btn.setAttribute('aria-expanded', 'true');
           RJ.sound.tap();
+          if (featureSvg) {
+            featureSvg.querySelectorAll('.is-part-glow').forEach((el) => el.classList.remove('is-part-glow'));
+            const part = featureSvg.querySelector(partMap[id] || '.sai-bob');
+            if (part) part.classList.add('is-part-glow');
+          }
         }
       });
     });
@@ -142,7 +185,9 @@
         ? `kuliner.html?hidangan=${encodeURIComponent(h.dishId)}`
         : `ensiklopedia.html?entri=${encodeURIComponent(h.entryId)}`;
       const motif = window.RJ_ART ? window.RJ_ART.motifPaths(h.motif || 'compass', 300, 300, 3.3) : '';
+      const photo = h.image ? `<img class="highlight-card__photo" src="${esc(h.image)}" alt="${esc(h.title)}" loading="lazy">` : '';
       return `<a class="highlight-card" href="${href}">
+        ${photo}
         <span class="highlight-card__label">${esc(h.label)}</span>
         <span class="highlight-card__art" aria-hidden="true"><svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><g color="currentColor">${motif}</g></svg></span>
         <h3>${esc(h.title)}</h3>
@@ -151,6 +196,7 @@
       </a>`;
     }).join('');
     if (window.RJ.hydrateIcons) RJ.hydrateIcons(rail);
+    if (window.RJ.bindInteractiveCards) RJ.bindInteractiveCards(rail);
 
     const prev = $('[data-rail-prev]');
     const next = $('[data-rail-next]');
@@ -199,14 +245,21 @@
       <g fill="rgba(245,239,226,.075)" stroke="rgba(217,169,79,.55)" stroke-width="1.2">
         ${map.regencies.map((r) => `<path class="mini-region" data-region="${r.id}" d="${r.path}"><title>${esc(r.name)}</title></path>`).join('')}
       </g>
+      <circle class="mini-beacon" cx="0" cy="0" r="14"/>
       <g>${map.regencies.map((r) => `<circle class="mini-dot" cx="${r.cx}" cy="${r.cy}" r="3.2" opacity=".5"/>`).join('')}</g>
     </svg>`;
     const card = $('#home-map-card');
     const chips = $('#home-map-chips');
+    const beacon = wrap.querySelector('.mini-beacon');
     const featured = ['pesisir-barat', 'lampung-barat', 'lampung-tengah', 'lampung-timur'];
     function select(id) {
       const region = byId[id];
       if (!region) return;
+      const mReg = map.regencies.find((m) => m.id === id);
+      if (beacon && mReg) {
+        beacon.setAttribute('cx', String(mReg.cx));
+        beacon.setAttribute('cy', String(mReg.cy));
+      }
       wrap.querySelectorAll('.mini-region').forEach((p) => {
         p.classList.toggle('is-active', p.dataset.region === id);
       });
@@ -218,6 +271,9 @@
         <h3 style="margin-top:10px">${esc(region.name)}</h3>
         <p>${esc(region.summary)}</p>
         <div class="map-teaser__chips" style="margin-top:12px">${(region.highlights || []).map((h) => `<span>${esc(h)}</span>`).join('')}</div>`;
+      card.classList.remove('is-swap');
+      void card.offsetWidth;
+      card.classList.add('is-swap');
       chips.querySelectorAll('button').forEach((b) => b.classList.toggle('is-active', b.dataset.id === id));
     }
     chips.innerHTML = featured.map((id) => {
@@ -248,15 +304,15 @@
     const wrap = $('#home-games');
     if (!wrap) return;
     const games = [
-      { icon: 'spark', title: 'Kuis Piil Pesenggiri', desc: 'Uji pemahaman falsafah', href: 'gawi.html?game=kuis' },
-      { icon: 'loom', title: 'Cocokkan Tapis', desc: 'Latih ingatan motif', href: 'gawi.html?game=tapis' },
-      { icon: 'crown', title: 'Pasang Siger', desc: 'Rangkai atribut Sai', href: 'gawi.html?game=siger', wide: false },
-      { icon: 'glyph', title: 'Tebak Aksara', desc: 'Kenali had Lampung', href: 'gawi.html?game=aksara', wide: false },
-      { icon: 'bowl', title: 'Meracik Seruit', desc: 'Susun bahan & langkah', href: 'gawi.html?game=seruit', wide: true }
+      { icon: 'spark', title: 'Kuis Piil Pesenggiri', desc: 'Uji pemahaman falsafah', href: 'gawi.html?game=kuis', img: 'assets/img/entries/piil-pesenggiri.svg' },
+      { icon: 'loom', title: 'Cocokkan Tapis', desc: 'Latih ingatan motif', href: 'gawi.html?game=tapis', img: 'assets/img/entries/tapis.webp' },
+      { icon: 'crown', title: 'Pasang Siger', desc: 'Rangkai atribut Sai', href: 'gawi.html?game=siger', wide: false, img: 'assets/img/entries/siger.webp' },
+      { icon: 'glyph', title: 'Tebak Aksara', desc: 'Kenali had Lampung', href: 'gawi.html?game=aksara', wide: false, img: 'assets/img/entries/aksara-lampung.svg' },
+      { icon: 'bowl', title: 'Meracik Seruit', desc: 'Susun bahan & langkah', href: 'gawi.html?game=seruit', wide: true, img: 'assets/img/dishes/seruit.webp' }
     ];
     wrap.innerHTML = games.map((g) => `
       <a class="game-mini ${g.wide ? 'game-mini--wide' : ''}" href="${g.href}">
-        <span class="game-mini__icon">${icon(g.icon)}</span>
+        <span class="game-mini__thumb"><img src="${g.img}" alt="" loading="lazy"></span>
         <span><b>${esc(g.title)}</b><span>${esc(g.desc)}</span></span>
         ${icon('arrow-up-right')}
       </a>`).join('');
@@ -269,6 +325,7 @@
     const items = picks.map((id) => D.agenda.find((a) => a.id === id)).filter(Boolean);
     wrap.innerHTML = items.map((a) => `
       <a class="agenda-mini" href="agenda.html">
+        ${a.image ? `<div class="agenda-mini__media"><img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy"></div>` : ''}
         <div class="agenda-mini__date"><b>${esc(a.month.split('–')[0].slice(0, 9))}</b><span>${esc(a.type)}</span></div>
         <h4>${esc(a.title)}</h4>
         <p>${esc(a.desc)}</p>

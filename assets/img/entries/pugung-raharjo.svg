@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="pugbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#183326"/>
+      <stop offset="100%" stop-color="#0d1b14"/>
+    </linearGradient>
+    <radialGradient id="pugglow" cx="52%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#d9a94f" stop-opacity="0.48"/>
+      <stop offset="55%" stop-color="#d9a94f" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d9a94f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="puggold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fae6b4"/>
+      <stop offset="45%" stop-color="#d9a94f"/>
+      <stop offset="100%" stop-color="#9e6d24"/>
+    </linearGradient>
+    <linearGradient id="pugmaroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a2b3d"/>
+      <stop offset="100%" stop-color="#48121d"/>
+    </linearGradient>
+    <pattern id="pugtapis" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M24 3 45 24 24 45 3 24Z" fill="none" stroke="#d9a94f" stroke-width="1"/>
+      <path d="M24 12 36 24 24 36 12 24Z" fill="none" stroke="#d9a94f" stroke-width="0.7" opacity="0.6"/>
+      <circle cx="24" cy="24" r="1.5" fill="#d9a94f"/>
+    </pattern>
+    <filter id="pugshadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0a0605" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#pugbg)"/>
+  <rect width="800" height="600" fill="url(#pugtapis)" opacity="0.09"/>
+  <rect width="800" height="600" fill="url(#pugglow)"/>
+  
+        <circle cx="400" cy="210" r="145" fill="#fae6b4" opacity="0.22"/>
+        <!-- Misty forest canopy backdrop -->
+        <path d="M0 320 Q120 180 260 265 Q410 155 560 260 Q680 185 800 280 V450 H0 Z" fill="#132c20"/>
+        <g filter="url(#pugshadow)">
+          <!-- Terraced megalithic earthwork mound (Punden Berundak) -->
+          <path d="M100 500 L165 420 H635 L700 500 Z" fill="#2a4836" stroke="#85a68c" stroke-opacity="0.45" stroke-width="2"/>
+          <path d="M180 420 L235 350 H565 L620 420 Z" fill="#345642" stroke="#85a68c" stroke-opacity="0.45" stroke-width="2"/>
+          <path d="M265 350 L305 290 H495 L535 350 Z" fill="#3e644d" stroke="#85a68c" stroke-opacity="0.5" stroke-width="2"/>
+          <!-- Ancient weathered standing menhir & stone altars -->
+          <path d="M372 292 L384 148 Q402 128 418 152 L430 292 Z" fill="#6f7368" stroke="#3c4038" stroke-width="2.5"/>
+          <path d="M388 180 Q404 190 400 245" fill="none" stroke="#4d704f" stroke-width="4" opacity="0.7"/>
+          <path d="M295 350 L305 262 Q318 250 330 264 L336 350 Z" fill="#5e6257" stroke="#3c4038" stroke-width="2"/>
+          <path d="M462 350 L468 252 Q484 240 496 254 L504 350 Z" fill="#5e6257" stroke="#3c4038" stroke-width="2"/>
+          <!-- Foreground megalithic altar stones -->
+          <ellipse cx="220" cy="480" rx="45" ry="18" fill="#676b60" stroke="#3c4038" stroke-width="2"/>
+          <ellipse cx="580" cy="482" rx="48" ry="18" fill="#676b60" stroke="#3c4038" stroke-width="2"/>
+        </g>
+        <rect x="0" y="500" width="800" height="100" fill="#0c1a13"/>
+        
+  <rect x="20" y="20" width="760" height="560" rx="14" fill="none" stroke="#d9a94f" stroke-opacity="0.24" stroke-width="1.2"/>
+  <path d="M20 52 L52 20 M748 20 L780 52 M20 548 L52 580 M748 580 L780 548" stroke="#d9a94f" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>
